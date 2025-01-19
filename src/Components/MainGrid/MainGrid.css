@@ -1,0 +1,7 @@
+.main-grid {
+    grid-area: main;
+  }
+
+.top-image {
+    width: 90%;
+}

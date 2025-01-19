@@ -1,0 +1,15 @@
+.player-card {
+    width: 70pt;
+    height: 70pt;
+    border: 3pt;
+    border-radius: 5%;
+    margin: 10pt;
+    border-color: black;
+    background-color: darkblue; 
+    display: flex;
+}
+
+.card-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+}

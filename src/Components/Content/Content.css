@@ -1,0 +1,13 @@
+.cards {
+    display: inline; 
+    background-color: bisque; 
+    margin: 111pt;
+    width: 500pt;
+    height: 500pt;
+}
+
+.cards-container {
+    background-color: blueviolet;
+    display: flex;
+    width: 90%;
+}
