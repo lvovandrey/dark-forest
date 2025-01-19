@@ -1,11 +1,11 @@
 import Content from '../Content/Content'
-import './MainGrid.css'
+import './GameGrid.css'
 
-const MainGrid = () => {
+const GameGrid = () => {
     return <main className='main-grid'>
         <img className='top-image' alt='galaxyMap' src='/galaxyMap.png'/>
         <Content/>   
     </main>
 }
 
-export default MainGrid
+export default GameGrid

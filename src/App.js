@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './Components/Header/Header';
-import MainGrid from './Components/MainGrid/MainGrid';
+import GameGrid from './Components/GameGrid/GameGrid';
 import Navigation from './Components/Navigation/Navigation';
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     <div className="App">
       <Header/>
       <Navigation/>
-      <MainGrid/>
+      <GameGrid/>
     </div>
   );
 }
