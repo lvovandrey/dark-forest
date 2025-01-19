@@ -1,5 +1,5 @@
 import Content from '../Content/Content'
-import './GameGrid.css'
+import './GameGrid.module.css'
 
 const GameGrid = () => {
     return <main className='main-grid'>

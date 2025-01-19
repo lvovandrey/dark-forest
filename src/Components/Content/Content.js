@@ -1,4 +1,4 @@
-import './Content.css';
+import './Content.module.css';
 import PlayerCard from "../PlayerCard/PlayerCard"
 
 const Content = () => {

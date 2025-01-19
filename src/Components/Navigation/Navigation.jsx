@@ -1,4 +1,4 @@
-import './Navigation.css'
+import './Navigation.module.css'
 
 const Navigation = () => {
     return <nav className='navigation' >

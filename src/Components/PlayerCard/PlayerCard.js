@@ -1,4 +1,4 @@
-import './PlayerCard.css';
+import './PlayerCard.module.css';
 
 const PlayerCard = () => {
     return <div className="player-card">
