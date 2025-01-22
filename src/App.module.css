@@ -1,0 +1,18 @@
+.App {
+  text-align: left;
+  margin-left: 100pt;
+  display: grid;
+  grid-template-rows: 120pt 1fr;
+  grid-template-columns: 120pt 1fr;
+  grid-template-areas: 
+  "head nav"
+  "main main";
+}
+
+div {
+ color:lightcyan
+}
+
+
+
+

@@ -1,7 +1,9 @@
-.main-grid {
-    grid-area: main;
-  }
+.game {
+  grid-area: main;
+}
 
-.top-image {
-    width: 90%;
+.top_image {
+  width: 90%;
+  object-fit: cover;
+  height: 100px;
 }

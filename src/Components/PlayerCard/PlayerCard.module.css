@@ -1,15 +1,46 @@
-.player-card {
-    width: 70pt;
-    height: 70pt;
+.player_card {
+    min-width: 70pt;
     border: 3pt;
-    border-radius: 5%;
+    border-radius: 5pt;
     margin: 10pt;
     border-color: black;
-    background-color: darkblue; 
-    display: flex;
+    background-color: darkblue;
+    display: grid;
+    grid-template-rows: 12pt 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+        "streight no health"
+        "title title title";
 }
 
-.card-title {
+.player_card.active {
+    background-color: #3d52b7;
+}
+
+.card_title {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12pt;
+    font-size: 14pt;
+    margin: auto;
+    padding: 0pt 12pt 2pt 12pt;
+    grid-area: title;
+}
+
+.streight {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10pt;
+    color: crimson;
+    margin: auto;
+    padding: 1pt;
+    font-weight: bold;
+    grid-area: streight;
+}
+
+.health {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10pt;
+    color: rgb(187, 218, 49);
+    margin: auto;
+    padding: 1pt;
+    font-weight: bold;
+    grid-area: health;
 }

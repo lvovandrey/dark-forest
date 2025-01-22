@@ -1,4 +1,19 @@
 .navigation {
-    background-color: #070a13;
-    grid-area: nav;
-  }
+  background-color: #070a13;
+  grid-area: nav;
+}
+
+.navigation ul li {
+  display: inline;
+  margin-left: 10pt;
+}
+
+.navigation a {
+  font-size: 16pt;
+  text-decoration: none;
+  color: #26afca;
+}
+
+.navigation a:visited {
+  color: #57cce3;
+}

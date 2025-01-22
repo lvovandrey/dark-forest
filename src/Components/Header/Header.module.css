@@ -1,10 +1,33 @@
-.header {
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    margin-left: 10pt;
+.head {
+    background-color: #171f38;
+    grid-area: head;
 }
 
-a {
-    margin-left: 10pt;
+.app_logo {
+    pointer-events: none;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10pt;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .app_logo {
+        animation: app_logo_spin infinite 20s linear;
+    }
+}
+
+@keyframes app_logo_spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
