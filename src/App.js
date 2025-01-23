@@ -18,8 +18,8 @@ const App = () => {
         </nav>
         <main className={css.main}>
           <Routes>
-            <Route path="/" element={<GameGrid />} />
-            <Route path="/race" element={<RacesPage/>} />
+            <Route path="/game" element={<GameGrid />} />
+            <Route  path="/race/*" element={<RacesPage/>} />
           </Routes>
         </main>
       </div>

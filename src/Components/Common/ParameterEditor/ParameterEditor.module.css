@@ -1,0 +1,9 @@
+.title {
+    font-size: 12pt;
+    font-weight: normal;
+    margin: 10pt 0pt -10pt 0pt;
+}
+
+input {
+    min-width: 200pt;
+}

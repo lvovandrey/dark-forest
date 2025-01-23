@@ -1,15 +1,16 @@
 import css from './RaceInfo.module.css'
 
-const RaceInfo = () => {
+const RaceInfo = (props) => {
     return (
         <div className={css.raceInfo}>
             <div className={css.title}>
-                <h2>Силикоиды</h2>
+                <h2>{props.race.name}</h2>
             </div>
             <div className={css.info}>
-                <h4>Здоровье = 10</h4>
-                <h4>Сила = 10</h4>
+                <h4>Здоровье = {props.race.health}</h4>
+                <h4>Сила = {props.race.streight}</h4>
                 <h4>Описание</h4>
+                <p>{props.race.description}</p>
             </div>
             <div className={css.buttonContainer}>
                 <button>Save</button>
