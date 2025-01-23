@@ -4,6 +4,7 @@ import GameGrid from './Components/GameGrid/GameGrid';
 import Navigation from './Components/Navigation/Navigation';
 import RaceEditor from "./Components/RaceEditor/RaceEditor";
 import { Routes, BrowserRouter, Route } from "react-router"
+import RacesPage from './Components/RacesPage/RacesPage';
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         <main className={css.main}>
           <Routes>
             <Route path="/" element={<GameGrid />} />
-            <Route path="/race" element={<RaceEditor />} />
+            <Route path="/race" element={<RacesPage/>} />
           </Routes>
         </main>
       </div>
