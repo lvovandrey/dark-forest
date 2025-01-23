@@ -3,10 +3,10 @@ import css from './GameGrid.module.css'
 
 const GameGrid = () => {
     return (
-        <main className={css.game}>
+        <div>
             <img className={css.top_image} alt='galaxyMap' src='/galaxyMap.png' />
             <CardsContainer />
-        </main>
+        </div>
     )
 }
 

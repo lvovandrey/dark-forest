@@ -1,6 +1,7 @@
 .App {
   text-align: left;
   margin-left: 100pt;
+  margin-top: 10pt;
   display: grid;
   grid-template-rows: 120pt 1fr;
   grid-template-columns: 120pt 1fr;
@@ -13,6 +14,17 @@ div {
  color:lightcyan
 }
 
+.header {
+  grid-area: head;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.main {
+  grid-area: main;
+}
 
 
 

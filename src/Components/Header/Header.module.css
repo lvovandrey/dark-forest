@@ -1,18 +1,16 @@
 .head {
-    background-color: #171f38;
-    grid-area: head;
+    margin: 0pt;
 }
 
 .app_logo {
     pointer-events: none;
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
+    width: 70pt;
+    height: 70pt;
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10pt;
+    margin: 0pt;
 }
 
 

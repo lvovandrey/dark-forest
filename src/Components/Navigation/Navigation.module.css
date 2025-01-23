@@ -1,19 +1,17 @@
 .navigation {
-  background-color: #070a13;
-  grid-area: nav;
+  display: flex;
+  margin: auto;
+  height: 70pt;
 }
 
-.navigation ul li {
-  display: inline;
-  margin-left: 10pt;
-}
 
-.navigation a {
+a {
   font-size: 16pt;
   text-decoration: none;
-  color: #26afca;
+  color: #3b7eca;
+  margin: 20pt;
 }
 
-.navigation a:visited {
-  color: #57cce3;
+a.activelink {
+  color: white;
 }
