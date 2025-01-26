@@ -6,7 +6,7 @@ import RaceEditor from "./Components/RaceEditor/RaceEditor";
 import { Routes, BrowserRouter, Route } from "react-router"
 import RacesPage from './Components/RacesPage/RacesPage';
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className={css.App}>
@@ -19,7 +19,7 @@ const App = () => {
         <main className={css.main}>
           <Routes>
             <Route path="/game" element={<GameGrid />} />
-            <Route  path="/race/*" element={<RacesPage/>} />
+            <Route  path="/race/*" element={<RacesPage races = {props.appData.races}/>} />
           </Routes>
         </main>
       </div>
