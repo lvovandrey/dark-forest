@@ -3,12 +3,11 @@ import Header from './Components/Header/Header';
 import GameGrid from './Components/GameGrid/GameGrid';
 import Navigation from './Components/Navigation/Navigation';
 import RaceEditor from "./Components/RaceEditor/RaceEditor";
-import { Routes, BrowserRouter, Route } from "react-router"
+import { Routes, Route } from "react-router"
 import RacesPage from './Components/RacesPage/RacesPage';
 
 const App = (props) => {
   return (
-    <BrowserRouter>
       <div className={css.App}>
         <header className={css.header}>
           <Header />
@@ -23,7 +22,6 @@ const App = (props) => {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
   );
 }
 

@@ -13,8 +13,8 @@ const RaceInfo = (props) => {
                 <p>{props.race.description}</p>
             </div>
             <div className={css.buttonContainer}>
-                <button>Save</button>
-                <button>Cancel</button>
+                <button>Edit</button>
+                <button>Delete</button>
             </div>
         </div>
     )
