@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state.js';
+import state, { addRace } from './redux/state.js';
 import { BrowserRouter } from 'react-router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App appState={state} />
+      <App appState={state} addRace={addRace} />
     </BrowserRouter>
   </React.StrictMode>
 );

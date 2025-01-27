@@ -16,4 +16,15 @@ let state = {
     races
 }
 
+export let addRace = (raceName, streight, health, description) => {
+    let newRace = {
+        name: raceName,
+        streight,
+        health,
+        description
+    } 
+    
+    state.races.push(newRace);
+}
+
 export default state;

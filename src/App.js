@@ -5,6 +5,7 @@ import Navigation from './Components/Navigation/Navigation';
 import RaceEditor from "./Components/RaceEditor/RaceEditor";
 import { Routes, Route } from "react-router"
 import RacesPage from './Components/RacesPage/RacesPage';
+import { addRace } from './redux/state';
 
 const App = (props) => {
   return (
@@ -18,7 +19,7 @@ const App = (props) => {
         <main className={css.main}>
           <Routes>
             <Route path="/game" element={<GameGrid />} />
-            <Route  path="/race/*" element={<RacesPage races = {props.appState.races}/>} />
+            <Route  path="/race/*" element={<RacesPage races = {props.appState.races} addRace={addRace} />} />
           </Routes>
         </main>
       </div>
