@@ -19,7 +19,7 @@ const App = (props) => {
         <main className={css.main}>
           <Routes>
             <Route path="/game" element={<GameGrid />} />
-            <Route  path="/race/*" element={<RacesPage races = {props.appData.races}/>} />
+            <Route  path="/race/*" element={<RacesPage races = {props.appState.races}/>} />
           </Routes>
         </main>
       </div>

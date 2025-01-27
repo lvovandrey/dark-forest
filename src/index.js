@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AppData from './AppData.js'
+import state from './redux/state.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App appData = {AppData} />
+    <App appState = {state} />
   </React.StrictMode>
 );
 
