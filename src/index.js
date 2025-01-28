@@ -1,19 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, { addRace } from './redux/state.js';
-import { BrowserRouter } from 'react-router';
+import state, { addRace, updateRace } from './redux/state.js';
+import { rerender } from './render.js';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App appState={state} addRace={addRace} />
-    </BrowserRouter>
-  </React.StrictMode>
-);
+rerender(state, addRace, updateRace)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

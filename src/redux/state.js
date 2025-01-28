@@ -1,3 +1,5 @@
+import { rerender } from "../render"
+
 const meklarInfo = {
     id: 0,
     name: 'Меклар',
@@ -16,15 +18,21 @@ let state = {
     races
 }
 
-export let addRace = (raceName, streight, health, description) => {
-    let newRace = {
-        name: raceName,
-        streight,
-        health,
-        description
-    } 
-    
-    state.races.push(newRace);
+export let addRace = (race) => {
+
+    let max = state.races.reduce((acc, curr) => acc.id > curr.id ? acc : curr).id;
+    race.id = max + 1
+    state.races.push(race)
+    rerender(state, addRace, updateRace)
 }
+
+export let updateRace = (race) => {
+
+    let curRace = state.races.find((r)=>r.id === race.id)
+    alert(curRace.name)
+    curRace = race;
+    rerender(state, addRace, updateRace)
+}
+
 
 export default state;

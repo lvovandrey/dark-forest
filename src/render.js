@@ -1,0 +1,16 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { BrowserRouter } from 'react-router';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+export let rerender = (state, addRace, updateRace) => {
+    root.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App appState={state} addRace={addRace} updateRace={updateRace} />
+            </BrowserRouter>
+        </React.StrictMode>
+    );
+}
