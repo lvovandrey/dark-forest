@@ -5,11 +5,11 @@ import { BrowserRouter } from 'react-router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export let rerender = (state, addRace, updateRace) => {
+export let rerender = (state, actor) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App appState={state} addRace={addRace} updateRace={updateRace} />
+                <App appState={state} appActor={actor} />
             </BrowserRouter>
         </React.StrictMode>
     );

@@ -1,4 +1,3 @@
-import { addRace } from '../../redux/state';
 import RaceLink from './Common/RaceLink/RaceLink';
 import css from './RacesList.module.css'
 
@@ -7,7 +6,7 @@ const RacesList = (props) => {
     let racesLinksElements = props.races.map(race => (<RaceLink race={race} />));
 
     let addNewRace = () => {
-        addRace('Gray', 1,2,'desc')
+        props.addRace({name:'Gray', streight:1, health: 2, description:'desc'})
     }
 
     return (
