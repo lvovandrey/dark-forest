@@ -5,20 +5,18 @@ import css from './RaceEditor.module.css';
 
 const RaceEditor = (props) => {
 
-    let currentRace = { ...props.race }
-
     const saveRace = () => {
-        props.updateRace(currentRace)
+        props.updateRace(props.race)
     }
 
     const createRace = () => {
-        props.addRace({ ...currentRace })
+        props.addRace(props.race)
     }
 
-    const setName = (name) => currentRace.name = name;
-    const setHealth = (health) => currentRace.health = health;
-    const setStreight = (streight) => currentRace.streight = streight;
-    const setDescription = (description) => currentRace.description = description;
+    const setName = (name) => props.race.name = name;
+    const setHealth = (health) => props.race.health = health;
+    const setStreight = (streight) => props.race.streight = streight;
+    const setDescription = (description) => props.race.description = description;
 
     return (
         <div className={css.raceEditor}>

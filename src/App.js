@@ -19,7 +19,9 @@ const App = (props) => {
           <Route path="/game" element={<GameGrid />} />
           <Route path="/race/*" element=
             {
-              <RacesPage races={props.appState.races} racesActor={props.appActor.racesActor} />
+              <RacesPage races={props.appState.races} 
+                        editedRace = {props.appState.newRace} 
+                        racesActor={props.appActor.racesActor} />
             } />
         </Routes>
       </main>

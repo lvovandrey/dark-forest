@@ -5,6 +5,7 @@ let addRace = (race) => {
     let max = state.races.reduce((acc, curr) => acc.id > curr.id ? acc : curr).id;
     race.id = max + 1
     state.races.push(race)
+    newEmptyRace();
     rerender(state, actor)
 }
 
@@ -19,9 +20,20 @@ let updateRace = (race) => {
     rerender(state, actor)
 }
 
+let newEmptyRace = () => {
+    let emptyRace = {
+        name:'',
+        streight:10,
+        health:10
+    }
+    state.newRace = emptyRace
+    rerender(state, actor)
+}
+
 let racesActor = {
     addRace,
-    updateRace
+    updateRace,
+    newEmptyRace
 }
 
 let actor = {

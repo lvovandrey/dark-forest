@@ -31,7 +31,7 @@ const races = [
 
 let state = {
     races,
-    editedRaceId: 0
+    newRace:{}
 }
 
 export default state;

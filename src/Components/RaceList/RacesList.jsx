@@ -6,7 +6,7 @@ const RacesList = (props) => {
     let racesLinksElements = props.races.map(race => (<RaceLink race={race} />));
 
     let addNewRace = () => {
-        props.addRace({name:'Gray', streight:1, health: 2, description:'desc'})
+        props.createRace()
     }
 
     return (
