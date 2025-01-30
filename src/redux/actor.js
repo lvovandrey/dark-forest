@@ -1,5 +1,10 @@
 import state from "./state";
-import { rerender } from "../render"
+
+let rerender = () => {}
+
+const subscribe = (observer) => {
+    rerender = observer
+}
 
 let addRace = (race) => {
 
@@ -11,7 +16,7 @@ let addRace = (race) => {
     state.newRace.id = max + 1
     state.races.push(state.newRace)
     state.newRace = {...(state.newRace)}
-    rerender(state, actor)
+    rerender()
 }
 
 let updateRace = () => {
@@ -21,7 +26,7 @@ let updateRace = () => {
     if (index !== -1) {
         state.races[index] = {...(state.newRace)};
     }
-    rerender(state, actor)
+    rerender()
 }
 
 let newEmptyRace = () => {
@@ -32,11 +37,11 @@ let newEmptyRace = () => {
         description: 'Описание'
     }
     state.newRace = emptyRace
-    rerender(state, actor)
+    rerender()
 }
 
 let onChangeNewRace = () => {
-    rerender(state, actor)
+    rerender()
 }
 
 let racesActor = {
@@ -46,7 +51,12 @@ let racesActor = {
     newEmptyRace
 }
 
+const globalActor = {
+    subscribe
+}
+
 let actor = {
+    globalActor,
     racesActor
 }
 
