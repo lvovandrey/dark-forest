@@ -6,26 +6,26 @@ import css from './RaceEditor.module.css';
 const RaceEditor = (props) => {
 
     const saveRace = () => {
-        props.updateRace(props.race)
+        props.raceActor.updateRace()
     }
 
     const createRace = () => {
-        props.addRace(props.race)
+        props.raceActor.addRace()
     }
 
-    const setName = (name) => props.race.name = name;
-    const setHealth = (health) => props.race.health = health;
-    const setStreight = (streight) => props.race.streight = streight;
-    const setDescription = (description) => props.race.description = description;
+    const setValue = (parameter, value) => {
+        props.race[parameter] = value
+        props.raceActor.onChangeNewRace()
+    }
 
     return (
         <div className={css.raceEditor}>
             Race Editor
             <div className={css.editFieldContainer}>
-                <ParameterEditor title='Название' parameter='name' setValue={setName} value={props.race.name} />
-                <ParameterEditor title='Здоровье' parameter='health' setValue={setHealth} value={props.race.health} />
-                <ParameterEditor title='Сила' parameter='streight' setValue={setStreight} value={props.race.streight} />
-                <TextAreaEditor title='Описание' parameter='description' setValue={setDescription} value={props.race.description} />
+                <ParameterEditor title='Название' parameter='name' setValue={setValue} value={props.race.name} />
+                <ParameterEditor title='Здоровье' parameter='health' setValue={setValue} value={props.race.health} />
+                <ParameterEditor title='Сила' parameter='streight' setValue={setValue} value={props.race.streight} />
+                <TextAreaEditor title='Описание' parameter='description' setValue={setValue} value={props.race.description} />
             </div>
             <div className={css.buttonContainer}>
                 <button onClick={createRace}>Create</button>

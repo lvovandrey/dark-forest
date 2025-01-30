@@ -5,5 +5,6 @@
 }
 
 textarea {
-    min-width: 200pt;
+    min-width: 300pt;
+    min-height: 50pt;
 }

@@ -5,16 +5,15 @@ const ParameterEditor = (props) => {
     
     let newParameterEditor =  createRef()
     
-    const setParameter = (newValue) => 
+    const setParameter = () => 
     {
-        let val = newParameterEditor.current.value
-        props.setValue(val)
+        let newValue = newParameterEditor.current.value
+        props.setValue(props.parameter, newValue)
     }
-
     return (
         <div>
             <div className={css.title}>{props.title}</div>
-            <input ref={newParameterEditor} type="text" name={props.parameter} onChange={setParameter} defaultValue={props.value}/>
+            <input ref={newParameterEditor} type="text" name={props.parameter} onChange={setParameter} value={props.value}/>
         </div>
     )
 }
