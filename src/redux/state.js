@@ -1,3 +1,5 @@
+import { actionNames } from "./actionNameConstants"
+
 const races = [
     {
         id: 0,
@@ -29,9 +31,27 @@ const races = [
     },
 ]
 
-let state = {
+const raceState = {
     races,
-    newRace:{}
+    newRace:    {
+        id: 0,
+        name: 'Меклар',
+        health: 15,
+        streight: 17,
+        description: 'Раса меклар — это кибернеты, полностью отказавшиеся от органической части своих тел. Пища им не нужна, поскольку энергией они снабжаются посредством реакторов с топливом из антиматерии. Политический строй — диктатура: каждый следующий диктатор выбирается после смерти предыдущего, путем оценки IQ всех граждан.'
+    },
+    preCreatedRaceName:''
 }
+
+let state = {
+    raceState
+}
+
+export const addRaceActionCreator = () => ({type: actionNames.ADD_RACE})
+export const newEmptyRaceActionCreator = (raceName) => ({type: actionNames.NEW_EMPTY_RACE, name: raceName})
+export const updateRaceActionCreator = () => ({type: actionNames.UPDATE_RACE})
+export const onChangeNewRaceActionCreator = () => ({type: actionNames.ON_CHANGE_NEW_RACE})
+export const onChangePreCreatedRaceNameActionCreator = (raceName) => 
+    ({type: actionNames.ON_CHANGE_PRE_CREATED_RACE_NAME, name: raceName})
 
 export default state;

@@ -1,27 +1,31 @@
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state.js';
-import actor from './redux/actor.js';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 import App from './App.js';
+import store from './redux/store.js';
+
+window.store = store;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+
 export let render = () => {
+    console.log("render")
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App appState={state} appActor={actor} />
+                <App store={store} state={store.getState()} />
             </BrowserRouter>
         </React.StrictMode>
     );
 }
 
+store.subscribeOnStateChangingCallback(render)
+
 render()
 
-actor.globalActor.subscribe(render)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

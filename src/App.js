@@ -19,9 +19,10 @@ const App = (props) => {
           <Route path="/game" element={<GameGrid />} />
           <Route path="/race/*" element=
             {
-              <RacesPage races={props.appState.races} 
-                        editedRace = {props.appState.newRace} 
-                        racesActor={props.appActor.racesActor} />
+              <RacesPage races={props.state.raceState.races}
+                preCreatedRaceName={props.state.raceState.preCreatedRaceName}
+                editedRace={props.state.raceState.newRace}
+                dispatch={props.store.dispatch.bind(props.store)} />
             } />
         </Routes>
       </main>

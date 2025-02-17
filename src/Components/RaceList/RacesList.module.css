@@ -1,3 +1,19 @@
 .racesList {
     padding: 10pt;
 }
+
+.editFieldContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.editFieldContainer input {
+    max-width: 100pt;
+    margin: 0pt 0pt 0pt 0pt;
+}
+
+
+.editFieldContainer h3 {
+    font-size: 12pt;
+    font-weight: normal;
+}

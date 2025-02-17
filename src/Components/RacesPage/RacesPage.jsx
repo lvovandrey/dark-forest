@@ -6,9 +6,10 @@ const RacesPage = (props) => {
     return (
         <div className={css.racesPage}>
             <RacesList races={props.races} 
-                       createRace={props.racesActor.newEmptyRace} />
+                       preCreatedRaceName = {props.preCreatedRaceName}
+                       dispatch={props.dispatch} />
             <RaceEditor race={props.editedRace} 
-                        raceActor={props.racesActor}/>
+                        dispatch={props.dispatch}/>
         </div>
     )
 }
