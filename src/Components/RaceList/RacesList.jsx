@@ -1,4 +1,4 @@
-import { newEmptyRaceActionCreator, onChangePreCreatedRaceNameActionCreator } from '../../redux/state';
+import { newEmptyRaceActionCreator, onChangePreCreatedRaceNameActionCreator } from '../../redux/actionCreators';
 import ParameterEditor from '../Common/ParameterEditor/ParameterEditor';
 import RaceLink from './Common/RaceLink/RaceLink';
 import css from './RacesList.module.css'

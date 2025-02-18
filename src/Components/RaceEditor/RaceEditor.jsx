@@ -1,4 +1,4 @@
-import { addRaceActionCreator, onChangeNewRaceActionCreator, updateRaceActionCreator } from '../../redux/state';
+import { addRaceActionCreator, onChangeNewRaceActionCreator, updateRaceActionCreator } from '../../redux/actionCreators';
 import ParameterEditor from '../Common/ParameterEditor/ParameterEditor';
 import TextAreaEditor from '../Common/TextAreaEditor/TextAreaEditor';
 import css from './RaceEditor.module.css';
@@ -18,7 +18,7 @@ const RaceEditor = (props) => {
         props.race[parameter] = value
         props.dispatch(onChangeNewRaceActionCreator())
     }
-    debugger
+
     return (
         <div className={css.raceEditor}>
             Race Editor

@@ -1,5 +1,3 @@
-import { actionNames } from "./actionNameConstants"
-
 const races = [
     {
         id: 0,
@@ -43,15 +41,16 @@ const raceState = {
     preCreatedRaceName:''
 }
 
-let state = {
-    raceState
+const gameState = {
+    races,
+    activeRaceId: 0,
+    contragentRaceId: 0
 }
 
-export const addRaceActionCreator = () => ({type: actionNames.ADD_RACE})
-export const newEmptyRaceActionCreator = (raceName) => ({type: actionNames.NEW_EMPTY_RACE, name: raceName})
-export const updateRaceActionCreator = () => ({type: actionNames.UPDATE_RACE})
-export const onChangeNewRaceActionCreator = () => ({type: actionNames.ON_CHANGE_NEW_RACE})
-export const onChangePreCreatedRaceNameActionCreator = (raceName) => 
-    ({type: actionNames.ON_CHANGE_PRE_CREATED_RACE_NAME, name: raceName})
+let state = {
+    raceState,
+    gameState
+}
+
 
 export default state;

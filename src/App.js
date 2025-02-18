@@ -16,7 +16,10 @@ const App = (props) => {
       </nav>
       <main className={css.main}>
         <Routes>
-          <Route path="/game" element={<GameGrid />} />
+          <Route path="/game" element={
+            <GameGrid gameState={props.state.gameState} 
+              dispatch={props.store.dispatch.bind(props.store)}/>
+            } />
           <Route path="/race/*" element=
             {
               <RacesPage races={props.state.raceState.races}
