@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 import App from './App.js';
-import store from './redux/store.js';
+import store from './redux/reduxStore.js';
 
 window.store = store;
 
@@ -22,7 +22,7 @@ export let render = () => {
     );
 }
 
-store.subscribeOnStateChangingCallback(render)
+store.subscribe(render)
 
 render()
 

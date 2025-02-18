@@ -1,6 +1,13 @@
 import { actionNames } from "./actionNameConstants";
+import { races } from "./state";
 
-const gameReducer = (state, action) => {
+let initialState = {
+    races,
+    activeRaceId: 0,
+    contragentRaceId: 0
+}
+
+const gameReducer = (state = initialState, action) => {
 
     const gameNextStep = () => {
        state.activeRaceId++;

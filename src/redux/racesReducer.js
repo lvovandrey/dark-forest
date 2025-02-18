@@ -1,6 +1,19 @@
 import { actionNames } from "./actionNameConstants";
+import state, { races } from "./state";
 
-const racesReducer = (state, action) => {
+let initialState =  {
+    races,
+    newRace:    {
+        id: 0,
+        name: 'Меклар',
+        health: 15,
+        streight: 17,
+        description: 'Раса меклар — это кибернеты, полностью отказавшиеся от органической части своих тел. Пища им не нужна, поскольку энергией они снабжаются посредством реакторов с топливом из антиматерии. Политический строй — диктатура: каждый следующий диктатор выбирается после смерти предыдущего, путем оценки IQ всех граждан.'
+    },
+    preCreatedRaceName:''
+}
+
+const racesReducer = (state = initialState, action) => {
 
     const addRace = () => {
         let curRace = state.races.find((r) => r.id === state.newRace.id)

@@ -1,4 +1,4 @@
-const races = [
+export const races = [
     {
         id: 0,
         name: 'Меклар',

@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router"
 import RacesPage from './Components/RacesPage/RacesPage';
 
 const App = (props) => {
+  debugger
   return (
     <div className={css.App}>
       <header className={css.header}>
