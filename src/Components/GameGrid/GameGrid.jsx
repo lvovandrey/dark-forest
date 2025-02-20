@@ -4,7 +4,7 @@ import css from './GameGrid.module.css'
 
 const GameGrid = (props) => {
     const nextStep = () => {
-        props.dispatch(gameNextStepActionCreator())
+        props.gameNextStep()
     }
 
     return (

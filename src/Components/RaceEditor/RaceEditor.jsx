@@ -1,4 +1,3 @@
-import { addRaceActionCreator, onChangeNewRaceActionCreator, updateRaceActionCreator } from '../../redux/actionCreators';
 import ParameterEditor from '../Common/ParameterEditor/ParameterEditor';
 import TextAreaEditor from '../Common/TextAreaEditor/TextAreaEditor';
 import css from './RaceEditor.module.css';
@@ -6,27 +5,18 @@ import css from './RaceEditor.module.css';
 
 const RaceEditor = (props) => {
 
-    const saveRace = () => {
-        props.dispatch(updateRaceActionCreator())
-    }
-
-    const createRace = () => {
-        props.dispatch(addRaceActionCreator())
-    }
-
-    const setValue = (parameter, value) => {
-        props.race[parameter] = value
-        props.dispatch(onChangeNewRaceActionCreator())
-    }
+    const saveRace = () => props.saveRace()
+    const createRace = () => props.createRace()
+    const changeRaceParameter = (parameter, value) => props.changeRaceParameter(parameter, value)
 
     return (
         <div className={css.raceEditor}>
             Race Editor
             <div className={css.editFieldContainer}>
-                <ParameterEditor title='Название' parameter='name' setValue={setValue} value={props.race.name} />
-                <ParameterEditor title='Здоровье' parameter='health' setValue={setValue} value={props.race.health} />
-                <ParameterEditor title='Сила' parameter='streight' setValue={setValue} value={props.race.streight} />
-                <TextAreaEditor title='Описание' parameter='description' setValue={setValue} value={props.race.description} />
+                <ParameterEditor title='Название' parameter='name' setValue={changeRaceParameter} value={props.race.name} />
+                <ParameterEditor title='Здоровье' parameter='health' setValue={changeRaceParameter} value={props.race.health} />
+                <ParameterEditor title='Сила' parameter='streight' setValue={changeRaceParameter} value={props.race.streight} />
+                <TextAreaEditor title='Описание' parameter='description' setValue={changeRaceParameter} value={props.race.description} />
             </div>
             <div className={css.buttonContainer}>
                 <button onClick={createRace}>Create</button>

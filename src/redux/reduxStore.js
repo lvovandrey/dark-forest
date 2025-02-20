@@ -10,5 +10,6 @@ const reducersBatch = combineReducers(
 )
 
 const store = createStore(reducersBatch)
+store.dispatch.bind(store)
 
 export default store
