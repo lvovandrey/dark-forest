@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 import App from './App.js';
 import store from './redux/reduxStore.js';
+import StoreContext from './storeContext.js';
 
 window.store = store;
 
@@ -16,7 +17,9 @@ export let render = () => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App store={store} state={store.getState()} />
+                <StoreContext.Provider value={store}>
+                    <App />
+                </StoreContext.Provider>
             </BrowserRouter>
         </React.StrictMode>
     );

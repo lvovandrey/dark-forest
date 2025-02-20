@@ -2,8 +2,8 @@ import css from './App.module.css';
 import Header from './Components/Header/Header';
 import Navigation from './Components/Navigation/Navigation';
 import { Routes, Route } from "react-router"
-import RacesPage from './Components/RacesPage/RacesPage';
 import GameGridContainer from './Components/GameGrid/GameGridContainer';
+import RacesPageContainer from './Components/RacesPage/RacesPageContainer';
 
 const App = (props) => {
   debugger
@@ -17,16 +17,8 @@ const App = (props) => {
       </nav>
       <main className={css.main}>
         <Routes>
-          <Route path="/game" element={
-            <GameGridContainer store={props.store} />
-            } />
-          <Route path="/race/*" element=
-            {
-              <RacesPage races={props.state.raceState.races}
-                preCreatedRaceName={props.state.raceState.preCreatedRaceName}
-                editedRace={props.state.raceState.newRace}
-                dispatch={props.store.dispatch.bind(props.store)} />
-            } />
+          <Route path="/game" element={<GameGridContainer />} />
+          <Route path="/race/*" element={<RacesPageContainer />} />
         </Routes>
       </main>
     </div>
