@@ -1,19 +1,21 @@
+import { connect } from 'react-redux';
 import { gameNextStepActionCreator } from '../../redux/actionCreators'
-import StoreContext from '../../storeContext';
 import GameGrid from './GameGrid';
 
-const GameGridContainer = () => {
-    debugger
-    return (<StoreContext.Consumer>
-        {
-            (store) => {
-                const gameNextStep = () => {
-                    store.dispatch(gameNextStepActionCreator())
-                }
-                return <GameGrid gameState={store.getState().gameState} gameNextStep={gameNextStep} />
-            }
-        }
-    </StoreContext.Consumer>)
+const mapStateToProps = (state) => {
+    return {
+        gameState: state.gameState
+    }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        gameNextStep: () => { 
+            dispatch(gameNextStepActionCreator()) 
+        }
+    }
+}
+
+const GameGridContainer = connect(mapStateToProps, mapDispatchToProps)(GameGrid)
 
 export default GameGridContainer
