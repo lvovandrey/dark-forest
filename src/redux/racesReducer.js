@@ -1,5 +1,6 @@
+import { act } from "react";
 import { actionNames } from "./actionNameConstants";
-import state, { races } from "./state";
+import { races } from "./state";
 
 let initialState =  {
     races,
@@ -15,63 +16,68 @@ let initialState =  {
 
 const racesReducer = (state = initialState, action) => {
 
+    const stateCopy = JSON.parse(JSON.stringify(state))
+
     const addRace = () => {
-        let curRace = state.races.find((r) => r.id === state.newRace.id)
+        let curRace = stateCopy.races.find((r) => r.id === stateCopy.newRace.id)
         if (curRace !== undefined)
             return
 
-        let max = state.races.reduce((acc, curr) => acc.id > curr.id ? acc : curr).id;
-        state.newRace.id = max + 1
-        state.races.push(state.newRace)
-        state.newRace = { ...(state.newRace) }
+        let max = stateCopy.races.reduce((acc, curr) => acc.id > curr.id ? acc : curr).id;
+        stateCopy.newRace.id = max + 1
+        stateCopy.races.push(stateCopy.newRace)
+        stateCopy.newRace = { ...(stateCopy.newRace) }
+        return stateCopy
     }
 
     const updateRace = () => {
-        let curRace = state.races.find((r) => r.id === state.newRace.id)
-        var index = state.races.indexOf(curRace);
+        let curRace = stateCopy.races.find((r) => r.id === stateCopy.newRace.id)
+        var index = stateCopy.races.indexOf(curRace);
 
         if (index !== -1) {
-            state.races[index] = { ...(state.newRace) };
+            stateCopy.races[index] = { ...(stateCopy.newRace) };
         }
+        return stateCopy
     }
 
-    const newEmptyRace = (name) => {
+    const newEmptyRace = () => {
         let emptyRace = {
-            name: !!name ? name : 'Чужие',
+            name: !!stateCopy.preCreatedRaceName ? stateCopy.preCreatedRaceName : 'Чужие',
             streight: 10,
             health: 10,
             description: 'Описание'
         }
-        state.newRace = emptyRace
+        stateCopy.newRace = emptyRace
+        return stateCopy
     }
 
-    const onChangeNewRace = () => {}
+    const onChangeNewRace = (parameter, value) => {
+        debugger
+        stateCopy.newRace[parameter] = value
+        return stateCopy
+    }
 
     const onChangePreCreatedRaceName = (name) => {
-        state.preCreatedRaceName = name
+        stateCopy.preCreatedRaceName = name
+        return stateCopy
     }
 
     switch (action.type) {
         case actionNames.ADD_RACE:
-            addRace(action.race)
-            break;
+            return addRace(action.race)
         case actionNames.NEW_EMPTY_RACE:
-            newEmptyRace(action.name)
-            break;
+            return newEmptyRace(action.name)
         case actionNames.UPDATE_RACE:
-            updateRace()
-            break;
+            return updateRace()
         case actionNames.ON_CHANGE_NEW_RACE:
-            onChangeNewRace()
-            break;
+            return onChangeNewRace(action.parameter, action.value)
         case actionNames.ON_CHANGE_PRE_CREATED_RACE_NAME:
-            onChangePreCreatedRaceName(action.name)
-            break;
+            return onChangePreCreatedRaceName(action.name)
         default:
             break;
     }
 
-    return state
+    return stateCopy
 }
 
 export default racesReducer

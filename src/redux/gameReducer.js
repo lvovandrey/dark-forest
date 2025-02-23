@@ -10,14 +10,14 @@ let initialState = {
 const gameReducer = (state = initialState, action) => {
 
     const gameNextStep = () => {
-        debugger
-       state.activeRaceId++;
+        let stateCopy = {...state}
+        stateCopy.activeRaceId++
+        return stateCopy
     }
 
   switch (action.type) {
             case actionNames.GAME_NEXT_STEP:
-                gameNextStep()
-                break;
+                return gameNextStep()
             default:
                 break;
         }

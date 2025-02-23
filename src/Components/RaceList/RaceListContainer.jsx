@@ -1,22 +1,27 @@
 import { newEmptyRaceActionCreator, onChangePreCreatedRaceNameActionCreator } from "../../redux/actionCreators"
-import store from "../../redux/reduxStore"
-import RacesList from "./RacesList"
+import { connect } from 'react-redux';
+import RacesList from './RacesList';
 
-const RacesListContainer = () => {
-
-    const addNewRace = () => {
-        store.dispatch(newEmptyRaceActionCreator(store.getState().raceState.preCreatedRaceName))
+const mapStateToProps = (state) => {
+    return {
+        races: state.raceState.races,
+        preCreatedRaceName: state.raceState.preCreatedRaceName
     }
-
-    const onChangePreCreatedRaceName = (value) => {
-        store.dispatch(onChangePreCreatedRaceNameActionCreator(value))
-    }
-
-    return (<RacesList
-        races={store.getState().raceState.races}
-        preCreatedRaceName={store.getState().raceState.preCreatedRaceName}
-        addNewRace={addNewRace}
-        onChangePreCreatedRaceName={onChangePreCreatedRaceName} />)
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addNewRace: () => {
+            dispatch(newEmptyRaceActionCreator())
+        },
+
+        onChangePreCreatedRaceName: (value) => {
+            debugger
+            dispatch(onChangePreCreatedRaceNameActionCreator(value))
+        }
+    }
+}
+
+const RacesListContainer = connect(mapStateToProps, mapDispatchToProps)(RacesList)
 
 export default RacesListContainer
