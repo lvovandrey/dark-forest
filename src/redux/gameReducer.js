@@ -9,18 +9,18 @@ let initialState = {
 
 const gameReducer = (state = initialState, action) => {
 
-    const gameNextStep = () => {
-        let stateCopy = {...state}
-        stateCopy.activeRaceId++
-        return stateCopy
-    }
+    const gameNextStep = () => (
+        {
+            ...state,
+            activeRaceId: ++state.activeRaceId
+        })
 
-  switch (action.type) {
-            case actionNames.GAME_NEXT_STEP:
-                return gameNextStep()
-            default:
-                break;
-        }
+    switch (action.type) {
+        case actionNames.GAME_NEXT_STEP:
+            return gameNextStep()
+        default:
+            break;
+    }
 
     return state
 }

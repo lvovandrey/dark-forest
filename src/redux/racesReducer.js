@@ -1,29 +1,33 @@
-import { act } from "react";
 import { actionNames } from "./actionNameConstants";
 import { races } from "./state";
 
-let initialState =  {
+let initialState = {
     races,
-    newRace:    {
+    newRace: {
         id: 0,
         name: 'Меклар',
         health: 15,
         streight: 17,
         description: 'Раса меклар — это кибернеты, полностью отказавшиеся от органической части своих тел. Пища им не нужна, поскольку энергией они снабжаются посредством реакторов с топливом из антиматерии. Политический строй — диктатура: каждый следующий диктатор выбирается после смерти предыдущего, путем оценки IQ всех граждан.'
     },
-    preCreatedRaceName:''
+    preCreatedRaceName: ''
 }
 
 const racesReducer = (state = initialState, action) => {
 
-    const stateCopy = JSON.parse(JSON.stringify(state))
-
     const addRace = () => {
-        let curRace = stateCopy.races.find((r) => r.id === stateCopy.newRace.id)
+        let curRace = state.races.find((r) => r.id === state.newRace.id)
         if (curRace !== undefined)
-            return
+            return state
 
-        let max = stateCopy.races.reduce((acc, curr) => acc.id > curr.id ? acc : curr).id;
+        let max = state.races.reduce((acc, curr) => acc.id > curr.id ? acc : curr).id;
+        
+        let stateCopy = {
+            ...state,
+            newRace: { ...state.newRace},
+            races: [...state.races]
+        }
+
         stateCopy.newRace.id = max + 1
         stateCopy.races.push(stateCopy.newRace)
         stateCopy.newRace = { ...(stateCopy.newRace) }
@@ -31,36 +35,50 @@ const racesReducer = (state = initialState, action) => {
     }
 
     const updateRace = () => {
-        let curRace = stateCopy.races.find((r) => r.id === stateCopy.newRace.id)
-        var index = stateCopy.races.indexOf(curRace);
+        let curRace = state.races.find((r) => r.id === state.newRace.id)
+        var index = state.races.indexOf(curRace);
+
+        let stateCopy = {
+            ...state,
+            races: [...state.races]
+        }
 
         if (index !== -1) {
             stateCopy.races[index] = { ...(stateCopy.newRace) };
         }
+
         return stateCopy
     }
 
     const newEmptyRace = () => {
         let emptyRace = {
-            name: !!stateCopy.preCreatedRaceName ? stateCopy.preCreatedRaceName : 'Чужие',
+            name: !!state.preCreatedRaceName ? state.preCreatedRaceName : 'Чужие',
             streight: 10,
             health: 10,
             description: 'Описание'
         }
-        stateCopy.newRace = emptyRace
-        return stateCopy
+
+        return {
+            ...state,
+            newRace: emptyRace
+        }
     }
 
     const onChangeNewRace = (parameter, value) => {
-        debugger
+        let stateCopy = {
+            ...state,
+            newRace: {...state.newRace}
+        }
         stateCopy.newRace[parameter] = value
         return stateCopy
     }
 
-    const onChangePreCreatedRaceName = (name) => {
-        stateCopy.preCreatedRaceName = name
-        return stateCopy
-    }
+    const onChangePreCreatedRaceName = (name) => (
+        {
+            ...state,
+            preCreatedRaceName: name
+        })
+
 
     switch (action.type) {
         case actionNames.ADD_RACE:
@@ -77,7 +95,7 @@ const racesReducer = (state = initialState, action) => {
             break;
     }
 
-    return stateCopy
+    return state
 }
 
 export default racesReducer
