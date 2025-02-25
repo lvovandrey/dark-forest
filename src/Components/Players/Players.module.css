@@ -1,0 +1,31 @@
+.playersPage {
+    display: grid;
+    grid-template-columns: 240pt 80pt 650pt 1fr;
+    grid-template-areas:
+        "raceslist empty playerslist empty2";
+}
+
+.raceslist {
+    grid-area: raceslist;
+}
+
+.playerslist {
+    grid-area: playerslist;
+}
+
+.playerscardsview {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.racesElementsContainer {
+    display: grid;
+    grid-template-columns: 120pt 120pt;
+}
+
+.raceElementButton {
+    max-width: 50pt;
+    max-height: 25pt;
+    margin-top: 15pt;
+    
+}

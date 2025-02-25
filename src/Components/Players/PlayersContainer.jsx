@@ -1,20 +1,20 @@
 import { connect } from 'react-redux';
 import Players from './Players';
-import { addPlayerActionCreator } from '../../redux/actionCreators';
+import { addPlayerActionCreator, removePlayerActionCreator } from '../../redux/actionCreators';
 
 const mapStateToProps = (state) => {
-    let players = state.playersState;
-    debugger
-    return {
-        races: state.raceState.races,
-        players: state.playersState.players
-    }
+    let newState = state.playersState;
+    newState.races = [...state.raceState.races]
+    return newState
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addPlayer: () => {
-            dispatch(addPlayerActionCreator)
+        addPlayer: (raceId) => {
+            dispatch(addPlayerActionCreator(raceId))
+        },
+        removePlayer: (raceId) => {
+            dispatch(removePlayerActionCreator(raceId))
         }
     }
 }

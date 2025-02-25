@@ -10,5 +10,7 @@ export const onChangePreCreatedRaceNameActionCreator = (raceName) =>
 
 export const gameNextStepActionCreator = () => ({type: actionNames.GAME_NEXT_STEP})
 
-export const addPlayerActionCreator = (race) => 
-    ({type: actionNames.ADD_PLAYER, race})
+export const addPlayerActionCreator = (raceId) => 
+    ({type: actionNames.ADD_PLAYER, raceId})
+export const removePlayerActionCreator = (raceId) => 
+    ({type: actionNames.REMOVE_PLAYER, raceId})

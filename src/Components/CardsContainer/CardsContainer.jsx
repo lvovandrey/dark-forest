@@ -4,7 +4,7 @@ import PlayerCard from "../PlayerCard/PlayerCard"
 const CardsContainer = (props) => {
     let racesElements = props.races.map(race => 
         (
-            <PlayerCard race={race.name} streight={race.streight} health={race.health} />
+            <PlayerCard key={race.id} race={race.name} streight={race.streight} health={race.health} />
         ));
     return (
          <div className={css.container} >

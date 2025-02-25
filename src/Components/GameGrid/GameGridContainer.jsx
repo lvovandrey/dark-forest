@@ -4,7 +4,7 @@ import GameGrid from './GameGrid';
 
 const mapStateToProps = (state) => {
     let gameState = state.gameState;
-    gameState.races = state.raceState.races
+    gameState.races = state.playersState.players
     return {
         gameState
     }

@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         onChangePreCreatedRaceName: (value) => {
-            debugger
             dispatch(onChangePreCreatedRaceNameActionCreator(value))
         }
     }

@@ -8,7 +8,6 @@ let initialState = {
 }
 
 const gameReducer = (state = initialState, action) => {
-
     const gameNextStep = () => (
         {
             ...state,

@@ -4,7 +4,7 @@ import css from './RacesList.module.css'
 
 const RacesList = (props) => {
 
-    const racesLinksElements = props.races.map(race => (<RaceLink race={race} />));
+    const racesLinksElements = props.races.map(race => (<RaceLink key={race.id} race={race} />));
     const addNewRace = () => props.addNewRace()
     const setValue = (parameter, value) => props.onChangePreCreatedRaceName(value)
 
