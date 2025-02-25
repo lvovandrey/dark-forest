@@ -1,4 +1,3 @@
-import { gameNextStepActionCreator } from '../../redux/actionCreators'
 import CardsContainer from '../CardsContainer/CardsContainer'
 import css from './GameGrid.module.css'
 

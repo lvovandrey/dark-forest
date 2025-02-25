@@ -47,9 +47,15 @@ const gameState = {
     contragentRaceId: 0
 }
 
+const playersState = {
+    races,
+    players: [races[0], races[1]]
+}
+
 let state = {
     raceState,
-    gameState
+    gameState,
+    playersState
 }
 
 

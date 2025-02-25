@@ -1,11 +1,13 @@
 import { combineReducers, createStore } from "redux";
 import gameReducer from "./gameReducer";
 import racesReducer from "./racesReducer";
+import playersReducer from "./playersReducer";
 
 const reducersBatch = combineReducers(
     {
         gameState: gameReducer,
-        raceState: racesReducer
+        raceState: racesReducer,
+        playersState: playersReducer
     }
 )
 

@@ -4,9 +4,10 @@ import Navigation from './Components/Navigation/Navigation';
 import { Routes, Route } from "react-router"
 import GameGridContainer from './Components/GameGrid/GameGridContainer';
 import RacesPageContainer from './Components/RacesPage/RacesPageContainer';
+import Players from './Components/Players/Players';
+import PlayersContainer from './Components/Players/PlayersContainer';
 
 const App = (props) => {
-  debugger
   return (
     <div className={css.App}>
       <header className={css.header}>
@@ -19,6 +20,7 @@ const App = (props) => {
         <Routes>
           <Route path="/game" element={<GameGridContainer />} />
           <Route path="/race/*" element={<RacesPageContainer />} />
+          <Route path="/players" element={<PlayersContainer/> } />
         </Routes>
       </main>
     </div>

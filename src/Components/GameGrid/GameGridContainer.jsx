@@ -3,8 +3,10 @@ import { gameNextStepActionCreator } from '../../redux/actionCreators'
 import GameGrid from './GameGrid';
 
 const mapStateToProps = (state) => {
+    let gameState = state.gameState;
+    gameState.races = state.raceState.races
     return {
-        gameState: state.gameState
+        gameState
     }
 }
 

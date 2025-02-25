@@ -10,6 +10,9 @@ const Navigation = () => {
             <NavLink to="/race" className={({ isActive }) =>(isActive ? css.activelink : "")}>
                 Создание расы
             </NavLink>
+            <NavLink to="/players" className={({ isActive }) =>(isActive ? css.activelink : "")}>
+                Выбор игроков
+            </NavLink>
         </div >
     )
 }
