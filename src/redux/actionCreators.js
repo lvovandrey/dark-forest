@@ -7,6 +7,8 @@ export const onChangeNewRaceActionCreator = (parameter, value) =>
     ({type: actionNames.ON_CHANGE_NEW_RACE, parameter, value})
 export const onChangePreCreatedRaceNameActionCreator = (raceName) => 
     ({type: actionNames.ON_CHANGE_PRE_CREATED_RACE_NAME, name: raceName})
+export const loadRacesAC = (races) => 
+    ({type: actionNames.LOAD_RACES, races})
 
 export const gameNextStepActionCreator = () => ({type: actionNames.GAME_NEXT_STEP})
 

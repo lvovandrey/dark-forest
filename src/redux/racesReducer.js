@@ -21,10 +21,10 @@ const racesReducer = (state = initialState, action) => {
             return state
 
         let max = state.races.reduce((acc, curr) => acc.id > curr.id ? acc : curr).id;
-        
+
         let stateCopy = {
             ...state,
-            newRace: { ...state.newRace},
+            newRace: { ...state.newRace },
             races: [...state.races]
         }
 
@@ -33,6 +33,12 @@ const racesReducer = (state = initialState, action) => {
         stateCopy.newRace = { ...(stateCopy.newRace) }
         return stateCopy
     }
+
+    const loadRaces = (races) => (
+        {
+            ...state,
+            races: [...races]
+        })
 
     const updateRace = () => {
         let curRace = state.races.find((r) => r.id === state.newRace.id)
@@ -46,7 +52,7 @@ const racesReducer = (state = initialState, action) => {
         if (index !== -1) {
             stateCopy.races[index] = { ...(stateCopy.newRace) };
         }
-
+        
         return stateCopy
     }
 
@@ -67,7 +73,7 @@ const racesReducer = (state = initialState, action) => {
     const onChangeNewRace = (parameter, value) => {
         let stateCopy = {
             ...state,
-            newRace: {...state.newRace}
+            newRace: { ...state.newRace }
         }
         stateCopy.newRace[parameter] = value
         return stateCopy
@@ -91,6 +97,8 @@ const racesReducer = (state = initialState, action) => {
             return onChangeNewRace(action.parameter, action.value)
         case actionNames.ON_CHANGE_PRE_CREATED_RACE_NAME:
             return onChangePreCreatedRaceName(action.name)
+        case actionNames.LOAD_RACES:
+            return loadRaces(action.races)
         default:
             break;
     }
