@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import Players from './Players';
-import { addPlayerActionCreator, removePlayerActionCreator } from '../../redux/actionCreators';
+import { addPlayerActionCreator, loadRacesAC, removePlayerActionCreator, setCurrentPageAC } from '../../redux/actionCreators';
 
 const mapStateToProps = (state) => {
     let newState = state.playersState;
-    newState.races = [...state.raceState.races]
+    newState.pageSize = state.playersState.pageSize
+    newState.totalRacesCount = state.playersState.totalRacesCount
+    newState.currentPage = state.playersState.currentPage
     return newState
 }
 
@@ -15,6 +17,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         removePlayer: (raceId) => {
             dispatch(removePlayerActionCreator(raceId))
+        },
+        loadRaces: (races) => {
+            dispatch(loadRacesAC(races))
+        },
+        setCurrentPage: (pageId) => {
+            dispatch(setCurrentPageAC(pageId))
         }
     }
 }

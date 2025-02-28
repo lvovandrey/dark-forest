@@ -29,3 +29,14 @@
     margin-top: 15pt;
     
 }
+
+.selectedPage {
+    font-weight:900;
+    color: white;
+    margin-right: 5pt;
+}
+
+span {
+    color:cornflowerblue;
+    margin-right: 5pt;
+}

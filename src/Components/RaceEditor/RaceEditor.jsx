@@ -13,10 +13,10 @@ const RaceEditor = (props) => {
         <div className={css.raceEditor}>
             Race Editor
             <div className={css.editFieldContainer}>
-                <ParameterEditor title='Название' parameter='name' setValue={changeRaceParameter} value={props.race.name} />
-                <ParameterEditor title='Здоровье' parameter='health' setValue={changeRaceParameter} value={props.race.health} />
-                <ParameterEditor title='Сила' parameter='streight' setValue={changeRaceParameter} value={props.race.streight} />
-                <TextAreaEditor title='Описание' parameter='description' setValue={changeRaceParameter} value={props.race.description} />
+                <ParameterEditor title='Название' parameter='name' setValue={changeRaceParameter} value={props.race?.name} />
+                <ParameterEditor title='Здоровье' parameter='health' setValue={changeRaceParameter} value={props.race?.health} />
+                <ParameterEditor title='Сила' parameter='streight' setValue={changeRaceParameter} value={props.race?.streight} />
+                <TextAreaEditor title='Описание' parameter='description' setValue={changeRaceParameter} value={props.race?.description} />
             </div>
             <div className={css.buttonContainer}>
                 <button onClick={createRace}>Create</button>

@@ -1,3 +1,4 @@
+import { getTop100Races, postRace } from "../Api/ServerRequests";
 import { actionNames } from "./actionNameConstants";
 import { races } from "./state";
 
@@ -15,7 +16,7 @@ let initialState = {
 
 const racesReducer = (state = initialState, action) => {
 
-    const addRace = () => {
+    const addRace = async () => {
         let curRace = state.races.find((r) => r.id === state.newRace.id)
         if (curRace !== undefined)
             return state
@@ -29,10 +30,19 @@ const racesReducer = (state = initialState, action) => {
         }
 
         stateCopy.newRace.id = max + 1
-        stateCopy.races.push(stateCopy.newRace)
-        stateCopy.newRace = { ...(stateCopy.newRace) }
+        
+        let postedRace = await postRace(stateCopy.newRace)
+        
+        stateCopy.races.push(postedRace)
+        stateCopy.newRace = { ...(postedRace) }
         return stateCopy
     }
+
+    const getAllRaces = async () => {
+        let allRaces = await getTop100Races()
+        debugger
+        return loadRaces(allRaces)
+    } 
 
     const loadRaces = (races) => (
         {
@@ -99,6 +109,8 @@ const racesReducer = (state = initialState, action) => {
             return onChangePreCreatedRaceName(action.name)
         case actionNames.LOAD_RACES:
             return loadRaces(action.races)
+        case actionNames.GET_ALL_RACES:
+            return getAllRaces()
         default:
             break;
     }

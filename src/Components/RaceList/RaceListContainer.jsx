@@ -1,9 +1,10 @@
-import { loadRacesAC, newEmptyRaceActionCreator, onChangePreCreatedRaceNameActionCreator } from "../../redux/actionCreators"
+import { getAllRacesAC, loadRacesAC, newEmptyRaceActionCreator, onChangePreCreatedRaceNameActionCreator } from "../../redux/actionCreators"
 import { connect } from 'react-redux';
 import RacesList from "./RacesList";
 
 const mapStateToProps = (state) => {
     return {
+        ...state,
         races: state.raceState.races,
         preCreatedRaceName: state.raceState.preCreatedRaceName
     }
@@ -21,6 +22,10 @@ const mapDispatchToProps = (dispatch) => {
 
         onChangePreCreatedRaceName: (value) => {
             dispatch(onChangePreCreatedRaceNameActionCreator(value))
+        },
+
+        getAllRaces: () => {
+            dispatch(getAllRacesAC())
         }
     }
 }
