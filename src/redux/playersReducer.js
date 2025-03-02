@@ -6,7 +6,8 @@ let initialState = {
     players: [races[0], races[1]],
     pageSize: 3,
     totalRacesCount: 25, 
-    currentPage: 1
+    currentPage: 1,
+    isRacesFetching: false
 }
 
 const playersReducer = (state = initialState, action) => {
