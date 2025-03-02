@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
-        ...state,
         race: state.raceState.newRace
     }
 }

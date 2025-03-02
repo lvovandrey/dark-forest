@@ -16,8 +16,9 @@ let initialState = {
 
 const racesReducer = (state = initialState, action) => {
 
-    const addRace = async () => {
-        let curRace = state.races.find((r) => r.id === state.newRace.id)
+    const addRace = () => {
+        debugger
+        let curRace = state.races?.find((r) => r.id === state.newRace.id)
         if (curRace !== undefined)
             return state
 
@@ -31,27 +32,27 @@ const racesReducer = (state = initialState, action) => {
 
         stateCopy.newRace.id = max + 1
         
-        let postedRace = await postRace(stateCopy.newRace)
+      //  let postedRace = await postRace(stateCopy.newRace)
         
-        stateCopy.races.push(postedRace)
-        stateCopy.newRace = { ...(postedRace) }
+        stateCopy.races.push(stateCopy.newRace)
+        stateCopy.newRace = { ...(stateCopy.newRace) }
         return stateCopy
     }
 
-    const getAllRaces = async () => {
-        let allRaces = await getTop100Races()
-        debugger
-        return loadRaces(allRaces)
-    } 
+    // const getAllRaces = async () => {
+    //     let allRaces = await getTop100Races()
+    //     debugger
+    //     return loadRaces(allRaces)
+    // } 
 
-    const loadRaces = (races) => (
-        {
-            ...state,
-            races: [...races]
-        })
+    // const loadRaces = (races) => (
+    //     {
+    //         ...state,
+    //         races: [...races]
+    //     })
 
     const updateRace = () => {
-        let curRace = state.races.find((r) => r.id === state.newRace.id)
+        let curRace = state.races?.find((r) => r.id === state.newRace.id)
         var index = state.races.indexOf(curRace);
 
         let stateCopy = {
@@ -107,10 +108,10 @@ const racesReducer = (state = initialState, action) => {
             return onChangeNewRace(action.parameter, action.value)
         case actionNames.ON_CHANGE_PRE_CREATED_RACE_NAME:
             return onChangePreCreatedRaceName(action.name)
-        case actionNames.LOAD_RACES:
-            return loadRaces(action.races)
-        case actionNames.GET_ALL_RACES:
-            return getAllRaces()
+        // case actionNames.LOAD_RACES:
+        //     return loadRaces(action.races)
+        // case actionNames.GET_ALL_RACES:
+        //     return getAllRaces()
         default:
             break;
     }

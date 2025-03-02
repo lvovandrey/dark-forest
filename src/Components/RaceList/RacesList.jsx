@@ -5,11 +5,11 @@ import React from 'react';
 
 class RacesList extends React.Component {
     
-    loadRaces = () => { this.props.getAllRaces()  }
+    // loadRaces = () => { this.props.getAllRaces()  }
     
-    componentDidMount() {
-        this.props.getAllRaces()
-    }
+    // componentDidMount() {
+    //     this.props.getAllRaces()
+    // }
 
     render () {
         debugger

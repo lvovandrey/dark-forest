@@ -4,7 +4,6 @@ import RacesList from "./RacesList";
 
 const mapStateToProps = (state) => {
     return {
-        ...state,
         races: state.raceState.races,
         preCreatedRaceName: state.raceState.preCreatedRaceName
     }
@@ -16,17 +15,17 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(newEmptyRaceActionCreator())
         },
 
-        loadRaces: (races) => {
-            dispatch(loadRacesAC(races))
-        },
+        // loadRaces: (races) => {
+        //     dispatch(loadRacesAC(races))
+        // },
 
         onChangePreCreatedRaceName: (value) => {
             dispatch(onChangePreCreatedRaceNameActionCreator(value))
         },
 
-        getAllRaces: () => {
-            dispatch(getAllRacesAC())
-        }
+        // getAllRaces: () => {
+        //     dispatch(getAllRacesAC())
+        // }
     }
 }
 
