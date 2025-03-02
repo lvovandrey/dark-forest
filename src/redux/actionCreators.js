@@ -19,3 +19,5 @@ export const removePlayerActionCreator = (raceId) =>
     ({type: actionNames.REMOVE_PLAYER, raceId})
 export const setCurrentPageAC = (pageId) => 
     ({type: actionNames.SET_CURRENT_PAGE, pageId})
+export const setTotalRacesCountAC = (racesCount) => 
+    ({type: actionNames.SET_TOTAL_RACES_COUNT, racesCount})

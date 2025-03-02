@@ -9,6 +9,7 @@ class Players extends React.Component {
         if (this.props.races.length > 0) {
             axios.get(`http://localhost:8089/races/?page=${this.props.currentPage}&pageSize=${this.props.pageSize}`).then((response) => {
                 this.props.loadRaces(response.data.races)
+                this.props.setTotalRacesCount(response.data.count)
             }).catch((error) => { console.log(error.message) });
         }
     }

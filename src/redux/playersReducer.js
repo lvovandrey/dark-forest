@@ -5,7 +5,7 @@ let initialState = {
     races: [...races, races[0]],
     players: [races[0], races[1]],
     pageSize: 3,
-    totalRacesCount: 10, 
+    totalRacesCount: 25, 
     currentPage: 1
 }
 
@@ -46,6 +46,12 @@ const playersReducer = (state = initialState, action) => {
             currentPage: pageId
         })
 
+    const setTotalRacesCount = (racesCount) => (
+        {
+            ...state,
+            totalRacesCount: racesCount
+        })
+
         debugger
     switch (action.type) {
         case actionNames.ADD_PLAYER:
@@ -56,6 +62,8 @@ const playersReducer = (state = initialState, action) => {
             return loadRaces(action.races)
         case actionNames.SET_CURRENT_PAGE:
             return setCurrentPage(action.pageId)
+        case actionNames.SET_TOTAL_RACES_COUNT:
+            return setTotalRacesCount(action.racesCount)
         default:
             break;
     }

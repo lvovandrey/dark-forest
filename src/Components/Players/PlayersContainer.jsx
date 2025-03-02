@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Players from './Players';
-import { addPlayerActionCreator, loadRacesAC, removePlayerActionCreator, setCurrentPageAC } from '../../redux/actionCreators';
+import { addPlayerActionCreator, loadRacesAC, removePlayerActionCreator, setCurrentPageAC, setTotalRacesCountAC } from '../../redux/actionCreators';
 
 const mapStateToProps = (state) => {
     let newState = state.playersState;
@@ -23,6 +23,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setCurrentPage: (pageId) => {
             dispatch(setCurrentPageAC(pageId))
+        },
+        setTotalRacesCount: (racesCount) => {
+            dispatch(setTotalRacesCountAC(racesCount))
         }
     }
 }

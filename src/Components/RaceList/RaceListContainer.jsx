@@ -15,17 +15,9 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(newEmptyRaceActionCreator())
         },
 
-        // loadRaces: (races) => {
-        //     dispatch(loadRacesAC(races))
-        // },
-
         onChangePreCreatedRaceName: (value) => {
             dispatch(onChangePreCreatedRaceNameActionCreator(value))
         },
-
-        // getAllRaces: () => {
-        //     dispatch(getAllRacesAC())
-        // }
     }
 }
 

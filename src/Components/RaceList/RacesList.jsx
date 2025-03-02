@@ -4,12 +4,6 @@ import css from './RacesList.module.css'
 import React from 'react';
 
 class RacesList extends React.Component {
-    
-    // loadRaces = () => { this.props.getAllRaces()  }
-    
-    // componentDidMount() {
-    //     this.props.getAllRaces()
-    // }
 
     render () {
         debugger
