@@ -21,3 +21,5 @@ export const setCurrentPageAC = (pageId) =>
     ({type: actionNames.SET_CURRENT_PAGE, pageId})
 export const setTotalRacesCountAC = (racesCount) => 
     ({type: actionNames.SET_TOTAL_RACES_COUNT, racesCount})
+export const toggleIsRacesFetchingAC = (isFetching) => 
+    ({type: actionNames.TOGGLE_IS_RACES_FETCHING, isFetching})

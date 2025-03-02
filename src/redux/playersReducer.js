@@ -7,7 +7,7 @@ let initialState = {
     pageSize: 3,
     totalRacesCount: 25, 
     currentPage: 1,
-    isRacesFetching: false
+    isRacesFetching: true
 }
 
 const playersReducer = (state = initialState, action) => {
@@ -53,6 +53,12 @@ const playersReducer = (state = initialState, action) => {
             totalRacesCount: racesCount
         })
 
+    const toggleIsRacesFetching = (isFetching) => (
+        {
+            ...state,
+            isRacesFetching: isFetching
+        })
+
         debugger
     switch (action.type) {
         case actionNames.ADD_PLAYER:
@@ -65,6 +71,8 @@ const playersReducer = (state = initialState, action) => {
             return setCurrentPage(action.pageId)
         case actionNames.SET_TOTAL_RACES_COUNT:
             return setTotalRacesCount(action.racesCount)
+        case actionNames.TOGGLE_IS_RACES_FETCHING:
+            return toggleIsRacesFetching(action.isFetching)
         default:
             break;
     }

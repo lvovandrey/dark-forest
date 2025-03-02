@@ -1,0 +1,27 @@
+.app_logo {
+    pointer-events: none;
+    width: 30pt;
+    height: 30pt;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0pt;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .app_logo {
+        animation: app_logo_spin infinite 1s linear;
+    }
+}
+
+@keyframes app_logo_spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
