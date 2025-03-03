@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Players from './Players';
-import { addPlayerActionCreator, loadRacesAC, removePlayerActionCreator, setCurrentPageAC, setTotalRacesCountAC, toggleIsRacesFetchingAC } from '../../redux/actionCreators';
+import { addPlayer, loadRaces, removePlayer, setCurrentPage, setTotalRacesCount, toggleIsRacesFetching } from '../../redux/actionCreators';
 import axios from 'axios';
 import React from 'react';
 import { Preloader } from '../Common/Preloader/Preloader';
@@ -61,30 +61,15 @@ const mapStateToProps = (state) => {
     return newState
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addPlayer: (raceId) => {
-            dispatch(addPlayerActionCreator(raceId))
-        },
-        removePlayer: (raceId) => {
-            dispatch(removePlayerActionCreator(raceId))
-        },
-        loadRaces: (races) => {
-            dispatch(loadRacesAC(races))
-        },
-        setCurrentPage: (pageId) => {
-            dispatch(setCurrentPageAC(pageId))
-        },
-        setTotalRacesCount: (racesCount) => {
-            dispatch(setTotalRacesCountAC(racesCount))
-        },
-        toggleIsRacesFetching: (isFetching) => {
-            dispatch(toggleIsRacesFetchingAC(isFetching))
-        },
-
+const PlayersContainer = connect(mapStateToProps,
+    {
+        addPlayer,
+        removePlayer,
+        loadRaces,
+        setCurrentPage,
+        setTotalRacesCount,
+        toggleIsRacesFetching
     }
-}
-
-const PlayersContainer = connect(mapStateToProps, mapDispatchToProps)(PlayersAPIContainer)
+)(PlayersAPIContainer)
 
 export default PlayersContainer

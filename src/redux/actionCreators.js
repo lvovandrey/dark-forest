@@ -15,13 +15,15 @@ export const getAllRacesAC = () => ({type: actionNames.GET_ALL_RACES})
 
 export const gameNextStepActionCreator = () => ({type: actionNames.GAME_NEXT_STEP})
 
-export const addPlayerActionCreator = (raceId) => 
+export const addPlayer = (raceId) => 
     ({type: actionNames.ADD_PLAYER, raceId})
-export const removePlayerActionCreator = (raceId) => 
+export const removePlayer = (raceId) => 
     ({type: actionNames.REMOVE_PLAYER, raceId})
-export const setCurrentPageAC = (pageId) => 
+export const setCurrentPage = (pageId) => 
     ({type: actionNames.SET_CURRENT_PAGE, pageId})
-export const setTotalRacesCountAC = (racesCount) => 
+export const setTotalRacesCount = (racesCount) => 
     ({type: actionNames.SET_TOTAL_RACES_COUNT, racesCount})
-export const toggleIsRacesFetchingAC = (isFetching) => 
+export const toggleIsRacesFetching = (isFetching) => 
     ({type: actionNames.TOGGLE_IS_RACES_FETCHING, isFetching})
+export const loadRaces = (races) => 
+    ({type: actionNames.LOAD_RACES, races})
