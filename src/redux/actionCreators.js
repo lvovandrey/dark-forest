@@ -9,6 +9,8 @@ export const onChangePreCreatedRaceNameActionCreator = (raceName) =>
     ({type: actionNames.ON_CHANGE_PRE_CREATED_RACE_NAME, name: raceName})
 export const loadRacesAC = (races) => 
     ({type: actionNames.LOAD_RACES, races})
+export const loadAllRacesAC = (races) => 
+    ({type: actionNames.LOAD_ALL_RACES, races})
 export const getAllRacesAC = () => ({type: actionNames.GET_ALL_RACES})
 
 export const gameNextStepActionCreator = () => ({type: actionNames.GAME_NEXT_STEP})

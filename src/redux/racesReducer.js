@@ -1,4 +1,5 @@
 import { getTop100Races, postRace, putRace } from "../Api/ServerRequests";
+import { loadAllRacesAC } from "./actionCreators";
 import { actionNames } from "./actionNameConstants";
 import { races } from "./state";
 
@@ -53,6 +54,8 @@ const racesReducer = (state = initialState, action) => {
             stateCopy.races[index] = { ...(stateCopy.newRace) };
         }
         
+        putRace(stateCopy.newRace)
+
         return stateCopy
     }
 
@@ -85,6 +88,12 @@ const racesReducer = (state = initialState, action) => {
             preCreatedRaceName: name
         })
 
+    const loadAllRaces = (races) => (
+        {
+            ...state,
+            races: [...races]
+        })
+
 
     switch (action.type) {
         case actionNames.ADD_RACE:
@@ -97,6 +106,8 @@ const racesReducer = (state = initialState, action) => {
             return onChangeNewRace(action.parameter, action.value)
         case actionNames.ON_CHANGE_PRE_CREATED_RACE_NAME:
             return onChangePreCreatedRaceName(action.name)
+        case actionNames.LOAD_ALL_RACES:
+            return loadAllRaces(action.races)
         default:
             break;
     }

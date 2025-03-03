@@ -36,7 +36,7 @@ export const postRace = async (race) => {
 
 export const putRace = async (race) => {
     try {
-      const response = await axios.post(`${racesEndpointUrl}/${race.id}`, race);
+      const response = await axios.put(`${racesEndpointUrl}/${race.id}`, race);
       console.log(response);
       return response.data
     } catch (error) {
