@@ -1,5 +1,5 @@
 import { getTop100Races, postRace, putRace } from "../Api/ServerRequests";
-import { loadAllRacesAC } from "./actionCreators";
+import { loadAllRaces } from "./actionCreators";
 import { actionNames } from "./actionNameConstants";
 import { races } from "./state";
 

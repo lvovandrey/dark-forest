@@ -1,4 +1,4 @@
-import { addRaceActionCreator, onChangeNewRaceActionCreator, updateRaceActionCreator } from "../../redux/actionCreators"
+import { addRace, onChangeNewRace, updateRace } from "../../redux/actionCreators"
 import RaceEditor from "./RaceEditor"
 import { connect } from 'react-redux';
 
@@ -8,22 +8,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        saveRace: () => {
-            dispatch(updateRaceActionCreator())
-        },
-    
-        createRace: () => {
-            dispatch(addRaceActionCreator())
-        },
-    
-        changeRaceParameter: (parameter, value) => {
-            dispatch(onChangeNewRaceActionCreator(parameter, value))
-        }
-    }
-}
-
-const RaceEditorContainer = connect(mapStateToProps, mapDispatchToProps)(RaceEditor)
+const RaceEditorContainer = connect(mapStateToProps, {
+    saveRace: updateRace,
+    createRace: addRace,
+    changeRaceParameter: onChangeNewRace
+})(RaceEditor)
 
 export default RaceEditorContainer

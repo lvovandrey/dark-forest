@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { gameNextStepActionCreator } from '../../redux/actionCreators'
+import { gameNextStep } from '../../redux/actionCreators'
 import GameGrid from './GameGrid';
 
 const mapStateToProps = (state) => {
@@ -10,14 +10,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        gameNextStep: () => { 
-            dispatch(gameNextStepActionCreator()) 
-        }
-    }
-}
-
-const GameGridContainer = connect(mapStateToProps, mapDispatchToProps)(GameGrid)
+const GameGridContainer = connect(mapStateToProps, { gameNextStep })(GameGrid)
 
 export default GameGridContainer

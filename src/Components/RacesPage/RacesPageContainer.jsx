@@ -7,8 +7,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {return {}}
-
-const RacesPageContainer = connect(mapStateToProps, mapDispatchToProps)(RacesPage)
+const RacesPageContainer = connect(mapStateToProps, {})(RacesPage)
 
 export default RacesPageContainer

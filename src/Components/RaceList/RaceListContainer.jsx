@@ -1,4 +1,4 @@
-import {  loadAllRacesAC, newEmptyRaceActionCreator, onChangePreCreatedRaceNameActionCreator } from "../../redux/actionCreators"
+import {  loadAllRaces, newEmptyRace, onChangePreCreatedRaceName } from "../../redux/actionCreators"
 import { connect } from 'react-redux';
 import RacesList from "./RacesList";
 
@@ -9,20 +9,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addNewRace: () => {
-            dispatch(newEmptyRaceActionCreator())
-        },
-        loadRaces: (races) => {
-            dispatch(loadAllRacesAC(races))
-        },
-        onChangePreCreatedRaceName: (value) => {
-            dispatch(onChangePreCreatedRaceNameActionCreator(value))
-        },
-    }
-}
-
-const RacesListContainer = connect(mapStateToProps, mapDispatchToProps)(RacesList)
+const RacesListContainer = connect(mapStateToProps, {
+    addNewRace: newEmptyRace,
+    loadRaces: loadAllRaces,
+    onChangePreCreatedRaceName
+})(RacesList)
 
 export default RacesListContainer
