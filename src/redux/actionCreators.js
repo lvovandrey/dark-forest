@@ -12,6 +12,9 @@ export const loadRacesAC = (races) =>
 export const loadAllRaces = (races) => 
     ({type: actionNames.LOAD_ALL_RACES, races})
 export const getAllRacesAC = () => ({type: actionNames.GET_ALL_RACES})
+export const setRaceEdited = (race) => 
+    ({type: actionNames.SET_RACE_EDITED, race})
+
 
 export const gameNextStep = () => ({type: actionNames.GAME_NEXT_STEP})
 

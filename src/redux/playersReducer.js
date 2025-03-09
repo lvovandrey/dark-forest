@@ -59,7 +59,6 @@ const playersReducer = (state = initialState, action) => {
             isRacesFetching: isFetching
         })
 
-        debugger
     switch (action.type) {
         case actionNames.ADD_PLAYER:
             return addPlayer(action.raceId)

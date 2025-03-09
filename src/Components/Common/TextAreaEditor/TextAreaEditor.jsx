@@ -1,4 +1,4 @@
-import { createRef, Component } from 'react';
+import { createRef } from 'react';
 import css from './TextAreaEditor.module.css';
 
 const TextAreaEditor = (props) => {

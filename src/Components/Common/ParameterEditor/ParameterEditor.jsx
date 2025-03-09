@@ -1,5 +1,5 @@
 import css from './ParameterEditor.module.css';
-import { createRef, Component } from 'react';
+import { createRef } from 'react';
 
 const ParameterEditor = (props) => {
     

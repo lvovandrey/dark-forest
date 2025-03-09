@@ -21,7 +21,6 @@ class RacesList extends React.Component {
     }
 
     render () {
-        debugger
         const racesLinksElements = this.props.races?.map(race => (<RaceLink key={race.id} race={race} />));
         const addNewRace = () => this.props.addNewRace()
         const setValue = (parameter, value) => this.props.onChangePreCreatedRaceName(value)

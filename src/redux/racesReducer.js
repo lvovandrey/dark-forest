@@ -1,5 +1,4 @@
-import { getTop100Races, postRace, putRace } from "../Api/ServerRequests";
-import { loadAllRaces } from "./actionCreators";
+import { postRace, putRace } from "../Api/ServerRequests";
 import { actionNames } from "./actionNameConstants";
 import { races } from "./state";
 
@@ -18,7 +17,6 @@ let initialState = {
 const racesReducer = (state = initialState, action) => {
 
     const addRace =  () => {
-        debugger
         let curRace = state.races?.find((r) => r.id === state.newRace.id)
         if (curRace !== undefined)
             return state
@@ -41,7 +39,6 @@ const racesReducer = (state = initialState, action) => {
     }
 
     const updateRace = () => {
-        debugger
         let curRace = state.races?.find((r) => r.id === state.newRace.id)
         var index = state.races.indexOf(curRace);
 
@@ -64,7 +61,8 @@ const racesReducer = (state = initialState, action) => {
             name: !!state.preCreatedRaceName ? state.preCreatedRaceName : 'Чужие',
             streight: 10,
             health: 10,
-            description: 'Описание'
+            description: 'Описание',
+            id: -1
         }
 
         return {
@@ -94,6 +92,12 @@ const racesReducer = (state = initialState, action) => {
             races: [...races]
         })
 
+    const setRaceEdited = (race) => (
+        {
+            ...state,
+            newRace: {...race}
+        })
+
 
     switch (action.type) {
         case actionNames.ADD_RACE:
@@ -108,6 +112,8 @@ const racesReducer = (state = initialState, action) => {
             return onChangePreCreatedRaceName(action.name)
         case actionNames.LOAD_ALL_RACES:
             return loadAllRaces(action.races)
+        case actionNames.SET_RACE_EDITED:
+            return setRaceEdited(action.race)
         default:
             break;
     }

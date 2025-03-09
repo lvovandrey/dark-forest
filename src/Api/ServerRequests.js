@@ -13,7 +13,6 @@ export const getRaces = (onCompletedCallback, onErrorCallback) => {
 }
 
 export const getTop100Races = async () => {
-    debugger
     try {
       const response = await axios.get(`${racesEndpointUrl}/?pageSize=100`);
       console.log(response);
@@ -24,7 +23,6 @@ export const getTop100Races = async () => {
   };
 
 export const postRace = async (race) => {
-    debugger
     try {
       const response = await axios.post(racesEndpointUrl, race);
       console.log(response);
