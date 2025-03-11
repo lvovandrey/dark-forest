@@ -1,6 +1,6 @@
 import { actionNames } from "./actionNameConstants"
 
-export const addRace = () => ({type: actionNames.ADD_RACE})
+export const addRace = (jwt) => ({type: actionNames.ADD_RACE, jwt})
 export const newEmptyRace = (raceName) => ({type: actionNames.NEW_EMPTY_RACE, name: raceName})
 export const updateRace = () => ({type: actionNames.UPDATE_RACE})
 export const onChangeNewRace = (parameter, value) => 

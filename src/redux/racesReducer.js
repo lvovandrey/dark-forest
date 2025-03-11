@@ -1,4 +1,4 @@
-import { postRace, putRace } from "../Api/ServerRequests";
+import { APIRaces } from "../Api/apiRaces";
 import { actionNames } from "./actionNameConstants";
 import { races } from "./state";
 
@@ -16,7 +16,7 @@ let initialState = {
 
 const racesReducer = (state = initialState, action) => {
 
-    const addRace =  () => {
+    const addRace =  (jwt) => {
         let curRace = state.races?.find((r) => r.id === state.newRace.id)
         if (curRace !== undefined)
             return state
@@ -31,7 +31,7 @@ const racesReducer = (state = initialState, action) => {
 
         stateCopy.newRace.id = max + 1
         
-        postRace(stateCopy.newRace)
+        APIRaces.postRace(stateCopy.newRace, jwt)
         
         stateCopy.races.push(stateCopy.newRace)
         stateCopy.newRace = { ...(stateCopy.newRace) }
@@ -51,7 +51,7 @@ const racesReducer = (state = initialState, action) => {
             stateCopy.races[index] = { ...(stateCopy.newRace) };
         }
         
-        putRace(stateCopy.newRace)
+        APIRaces.putRace(stateCopy.newRace)
 
         return stateCopy
     }
@@ -98,10 +98,9 @@ const racesReducer = (state = initialState, action) => {
             newRace: {...race}
         })
 
-
     switch (action.type) {
         case actionNames.ADD_RACE:
-            return addRace(action.race)
+            return addRace(action.jwt)
         case actionNames.NEW_EMPTY_RACE:
             return newEmptyRace(action.name)
         case actionNames.UPDATE_RACE:

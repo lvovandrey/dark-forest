@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Modal, Typography } from 'antd';
 import css from './LoginForm.module.css'
-import axios from 'axios';
+import { APIAuth } from '../../../Api/apiAuth';
 
 export const LoginForm = (props) => {
-  const login = (creditionals) => {
-    axios.post(`http://localhost:8089/auth/login/`, creditionals).then((response) => {
-      debugger
-      props.setUserData({
-        login: response.data.login,
-        userId: response.data.userId,
-        token: response.data.token
-      }, true)
-    }).catch((error) => {
-      debugger
-      props.setUserData({ login: null, userId: null, token: null }, false)
-      onFinishFailed()
-    });
+  const sendForm = (creditionals) => {
+    APIAuth.login(creditionals)
+      .then((data) => {
+        props.setUserData({
+          login: data.login,
+          userId: data.userId,
+          token: data.token
+        }, true)
+      }).catch((error) => {
+        props.setUserData({ login: null, userId: null, token: null }, false)
+        onFinishFailed()
+      });
   }
 
   const onFinishFailed = (errorInfo) => {
@@ -24,7 +23,7 @@ export const LoginForm = (props) => {
   };
 
   const [openLoginFailedDialog, setOpenLoginFailedDialog] = useState(false);
-  
+
   const showLoginFailedDialog = () => {
     setOpenLoginFailedDialog(true);
   };
@@ -42,7 +41,7 @@ export const LoginForm = (props) => {
       </Modal>
 
       <Form name="basic" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} style={{ maxWidth: 600 }}
-        onFinish={login}
+        onFinish={sendForm}
         onFinishFailed={showLoginFailedDialog}
         autoComplete="off">
         <Form.Item label={<label style={{ color: "white" }}>Login</label>} name="username" rules={[

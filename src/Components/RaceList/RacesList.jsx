@@ -1,15 +1,15 @@
-import axios from 'axios';
 import ParameterEditor from '../Common/ParameterEditor/ParameterEditor';
 import RaceLink from './Common/RaceLink/RaceLink';
 import css from './RacesList.module.css'
 import React from 'react';
+import { APIRaces } from '../../Api/apiRaces';
 
 class RacesList extends React.Component {
 
     loadRaces = () => {
         if (this.props.races.length > 0) {
-            axios.get(`http://localhost:8089/races/?page=1&pageSize=100`).then((response) => {
-                this.props.loadRaces(response.data.races)
+            APIRaces.getTop100Races().then((races) => {
+                this.props.loadRaces(races)
             }).catch((error) => {
                 console.log(error.message)
             });

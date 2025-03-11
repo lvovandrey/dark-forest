@@ -14,7 +14,6 @@ let initialState = {
 const authReducer = (state = initialState, action) => {
 
     const setUserData = (userData, isAuth) => {
-        debugger
         return {
             ...state,
             ...userData,
@@ -23,7 +22,6 @@ const authReducer = (state = initialState, action) => {
     }
 
 
-    debugger
     switch (action.type) {
         case SET_USER_DATA:
             return setUserData(action.userData, action.isAuth)
