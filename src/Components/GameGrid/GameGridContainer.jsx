@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { gameNextStep } from '../../redux/actionCreators'
 import GameGrid from './GameGrid';
+import { gameNextStep } from '../../redux/gameReducer';
 
 const mapStateToProps = (state) => {
     let gameState = state.gameState;

@@ -1,44 +1,20 @@
 import { connect } from 'react-redux';
 import Players from './Players';
-import { addPlayer, loadRaces, removePlayer, setCurrentPage, setTotalRacesCount, toggleIsRacesFetching } from '../../redux/actionCreators';
 import React from 'react';
 import { Preloader } from '../Common/Preloader/Preloader';
 import { APIRaces } from '../../Api/apiRaces';
+import { addPlayer, getRacesTC, loadRaces, removePlayer, setCurrentPage, setTotalRacesCount, toggleIsRacesFetching } from '../../redux/playersReducer';
 
 class PlayersAPIContainer extends React.Component {
 
-    loadRaces = () => {
+    componentDidMount() {
         if (this.props.races.length > 0) {
-            this.props.toggleIsRacesFetching(true)
-            
-            APIRaces.getRaces(this.props.currentPage, this.props.pageSize)
-            .then((data) => {
-                this.props.loadRaces(data.races)
-                this.props.setTotalRacesCount(data.count)
-                this.props.toggleIsRacesFetching(false)
-            }).catch((error) => {
-                console.log(error.message)
-                this.props.toggleIsRacesFetching(false)
-            });
+            this.props.getRacesTC(this.props.currentPage, this.props.pageSize)
         }
     }
 
-    componentDidMount() {
-        this.loadRaces()
-    }
-
     onPageChanged = (pageId) => {
-        this.props.toggleIsRacesFetching(true)
-        this.props.setCurrentPage(pageId)
-        
-        APIRaces.getRaces(pageId, this.props.pageSize)
-        .then((data) => {
-            this.props.loadRaces(data.races)
-            this.props.toggleIsRacesFetching(false)
-        }).catch((error) => {
-            console.log(error.message)
-            this.props.toggleIsRacesFetching(false)
-        });
+        this.props.getRacesTC(pageId, this.props.pageSize)
     }
 
     render() {
@@ -72,7 +48,8 @@ const PlayersContainer = connect(mapStateToProps,
         loadRaces,
         setCurrentPage,
         setTotalRacesCount,
-        toggleIsRacesFetching
+        toggleIsRacesFetching,
+        getRacesTC
     }
 )(PlayersAPIContainer)
 

@@ -24,4 +24,6 @@ const gameReducer = (state = initialState, action) => {
     return state
 }
 
+export const gameNextStep = () => ({type: actionNames.GAME_NEXT_STEP})
+
 export default gameReducer

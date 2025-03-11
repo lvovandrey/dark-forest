@@ -1,9 +1,9 @@
-import { addRace, onChangeNewRace, setRaceEdited, updateRace } from "../../redux/actionCreators"
 import RaceEditor from "./RaceEditor"
 import { connect } from 'react-redux';
 import React from "react";
 import { useParams } from "react-router";
 import { APIRaces } from "../../Api/apiRaces";
+import { addRace, onChangeNewRace, setRaceEdited, updateRace } from "../../redux/racesReducer";
 
 class RaceEditorAPIContainer extends React.Component {
 

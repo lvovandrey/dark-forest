@@ -1,6 +1,6 @@
-import {  loadAllRaces, newEmptyRace, onChangePreCreatedRaceName } from "../../redux/actionCreators"
 import { connect } from 'react-redux';
 import RacesList from "./RacesList";
+import { loadAllRaces, newEmptyRace, onChangePreCreatedRaceName } from '../../redux/racesReducer';
 
 const mapStateToProps = (state) => {
     return {
