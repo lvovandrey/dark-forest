@@ -2,17 +2,12 @@ import RaceEditor from "./RaceEditor"
 import { connect } from 'react-redux';
 import React from "react";
 import { useParams } from "react-router";
-import { APIRaces } from "../../Api/apiRaces";
-import { addRace, onChangeNewRace, setRaceEdited, updateRace } from "../../redux/racesReducer";
+import { addRace, getRaceToEditTC, onChangeNewRace, setRaceEdited, updateRace } from "../../redux/racesReducer";
 
 class RaceEditorAPIContainer extends React.Component {
 
     loadRace = () => {
-            APIRaces.getRace(this.props.params.raceId).then((race) => {
-                this.props.setRaceEdited(race)
-            }).catch((error) => {
-                console.log(error.message)
-            });
+            this.props.getRaceToEditTC(this.props.params.raceId)
     }
 
     componentDidMount() {
@@ -20,7 +15,6 @@ class RaceEditorAPIContainer extends React.Component {
     }
     
     componentDidUpdate(){
-        console.log("componentDidUpdate()");
         if(this.props.race.id != -1 && this.props.race.id != this.props.params.raceId)
         {
             this.loadRace()
@@ -59,7 +53,8 @@ const RaceEditorContainer = connect(mapStateToProps, {
     saveRace: updateRace,
     createRace: addRace,
     changeRaceParameter: onChangeNewRace,
-    setRaceEdited
+    setRaceEdited,
+    getRaceToEditTC
 })(RaceEditorUseParams)
 
 export default RaceEditorContainer

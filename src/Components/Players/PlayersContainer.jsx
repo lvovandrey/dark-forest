@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import Players from './Players';
 import React from 'react';
 import { Preloader } from '../Common/Preloader/Preloader';
-import { APIRaces } from '../../Api/apiRaces';
 import { addPlayer, getRacesTC, loadRaces, removePlayer, setCurrentPage, setTotalRacesCount, toggleIsRacesFetching } from '../../redux/playersReducer';
 
 class PlayersAPIContainer extends React.Component {

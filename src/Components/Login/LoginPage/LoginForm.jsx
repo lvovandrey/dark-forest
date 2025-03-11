@@ -1,21 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Modal, Typography } from 'antd';
 import css from './LoginForm.module.css'
-import { APIAuth } from '../../../Api/apiAuth';
 
 export const LoginForm = (props) => {
   const sendForm = (creditionals) => {
-    APIAuth.login(creditionals)
-      .then((data) => {
-        props.setUserData({
-          login: data.login,
-          userId: data.userId,
-          token: data.token
-        }, true)
-      }).catch((error) => {
-        props.setUserData({ login: null, userId: null, token: null }, false)
-        onFinishFailed()
-      });
+      props.loginTC(creditionals, onFinishFailed)
   }
 
   const onFinishFailed = (errorInfo) => {

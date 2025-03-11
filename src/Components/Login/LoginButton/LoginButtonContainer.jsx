@@ -1,21 +1,13 @@
 import React from "react";
 import LoginButton from "./LoginButton";
-import { setUserData } from "../../../redux/authReducer";
+import { authTC, setUserData } from "../../../redux/authReducer";
 import { connect } from "react-redux";
-import { APIAuth } from "../../../Api/apiAuth";
+
 
 export class LoginButtonAPIContainer extends React.Component {
 
-    auth = () => {
-        APIAuth.auth(this.props.token ).then((data) => {
-            this.props.setUserData({login: data.user.username, userId: data.user.userId}, true)
-        }).catch((error) => {
-            this.props.setUserData({login:null, userId: null}, false)
-        });
-    }
-
     componentDidMount() {
-        this.auth()
+        this.props.authTC()
     }
 
     render() {
@@ -34,7 +26,8 @@ const mapStateToProps = (state) => {
 
 const LoginButtonContainer = connect(mapStateToProps,
     {
-        setUserData
+        setUserData,
+        authTC
     }
 )(LoginButtonAPIContainer)
 

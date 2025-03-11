@@ -34,26 +34,3 @@ export const APIRaces = {
         .then((response) => response.data) 
   }
 }
-
-// export const postRace = async (race, token) => {
-//   try {
-//     const config = {
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//       },
-//     }
-//     const response = await apiInstanceRaces.post('', race, config);
-//     return response.data
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// export const putRace = async (race) => {
-//   try {
-//     const response = await apiInstanceRaces.put(`${race.id}`, race);
-//     return response.data
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };

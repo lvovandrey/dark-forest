@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import RacesList from "./RacesList";
-import { loadAllRaces, newEmptyRace, onChangePreCreatedRaceName } from '../../redux/racesReducer';
+import { loadAllRaces, loadFullRacesListTC, newEmptyRace, onChangePreCreatedRaceName } from '../../redux/racesReducer';
 
 const mapStateToProps = (state) => {
     return {
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 const RacesListContainer = connect(mapStateToProps, {
     addNewRace: newEmptyRace,
     loadRaces: loadAllRaces,
-    onChangePreCreatedRaceName
+    onChangePreCreatedRaceName,
+    loadFullRacesListTC
 })(RacesList)
 
 export default RacesListContainer

@@ -37,7 +37,7 @@ const racesReducer = (state = initialState, action) => {
         stateCopy.newRace = { ...(stateCopy.newRace) }
         return stateCopy
     }
-
+    
     const updateRace = () => {
         let curRace = state.races?.find((r) => r.id === state.newRace.id)
         var index = state.races.indexOf(curRace);
@@ -128,5 +128,26 @@ export const onChangePreCreatedRaceName = (raceName) => ({ type: actionNames.ON_
 export const loadAllRaces = (races) => ({ type: actionNames.LOAD_ALL_RACES, races })
 export const setRaceEdited = (race) => ({ type: actionNames.SET_RACE_EDITED, race })
 
+export const getRaceToEditTC = (raceId) => {
+    return (dispatch) => {
+        debugger
+        APIRaces.getRace(raceId).then((race) => {
+            dispatch(setRaceEdited(race))
+        }).catch((error) => {
+            console.log(error.message)
+        });
+    }
+}
+
+export const loadFullRacesListTC = () => {
+    return (dispatch) => {
+        debugger
+        APIRaces.getTop100Races().then((races) => {
+            dispatch(loadAllRaces(races))
+        }).catch((error) => {
+            console.log(error.message)
+        });
+    }
+}
 
 export default racesReducer

@@ -1,4 +1,4 @@
-import { setUserData } from "../../../redux/authReducer";
+import { loginTC, setUserData } from "../../../redux/authReducer";
 import { connect } from "react-redux";
 import { LoginForm } from "./LoginForm";
 
@@ -9,7 +9,8 @@ const mapStateToProps = (state) => {
 
 const LoginFormContainer = connect(mapStateToProps,
     {
-        setUserData
+        setUserData,
+        loginTC
     }
 )(LoginForm)
 
