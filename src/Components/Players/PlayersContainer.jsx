@@ -3,6 +3,8 @@ import Players from './Players';
 import React from 'react';
 import { Preloader } from '../Common/Preloader/Preloader';
 import { addPlayer, getRacesTC, loadRaces, removePlayer, setCurrentPage, setTotalRacesCount, toggleIsRacesFetching } from '../../redux/playersReducer';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class PlayersAPIContainer extends React.Component {
 
@@ -40,16 +42,20 @@ const mapStateToProps = (state) => {
     return newState
 }
 
-const PlayersContainer = connect(mapStateToProps,
-    {
-        addPlayer,
-        removePlayer,
-        loadRaces,
-        setCurrentPage,
-        setTotalRacesCount,
-        toggleIsRacesFetching,
-        getRacesTC
-    }
-)(PlayersAPIContainer)
+let dispatchObject =         {
+    addPlayer,
+    removePlayer,
+    loadRaces,
+    setCurrentPage,
+    setTotalRacesCount,
+    toggleIsRacesFetching,
+    getRacesTC
+}
+
+const PlayersContainer =    
+    compose(
+        connect(mapStateToProps, dispatchObject), 
+        withAuthRedirect
+    )(PlayersAPIContainer)
 
 export default PlayersContainer

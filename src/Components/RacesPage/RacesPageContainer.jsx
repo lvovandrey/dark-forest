@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 import RacesPage from './RacesPage';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-
-const AuthRedirectComponent = withAuthRedirect(RacesPage)
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
     return {
         racesState: state.raceState,
-        isAuth: state.authState.isAuth
     }
 }
 
-const RacesPageContainer = connect(mapStateToProps, {})(AuthRedirectComponent)
+const RacesPageContainer =    
+    compose(
+        connect(mapStateToProps, {}), 
+        withAuthRedirect
+    )(RacesPage)
 
 export default RacesPageContainer
