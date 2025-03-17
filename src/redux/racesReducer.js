@@ -130,7 +130,6 @@ export const setRaceEdited = (race) => ({ type: actionNames.SET_RACE_EDITED, rac
 
 export const getRaceToEditTC = (raceId) => {
     return (dispatch) => {
-        debugger
         APIRaces.getRace(raceId).then((race) => {
             dispatch(setRaceEdited(race))
         }).catch((error) => {
@@ -141,7 +140,6 @@ export const getRaceToEditTC = (raceId) => {
 
 export const loadFullRacesListTC = () => {
     return (dispatch) => {
-        debugger
         APIRaces.getTop100Races().then((races) => {
             dispatch(loadAllRaces(races))
         }).catch((error) => {

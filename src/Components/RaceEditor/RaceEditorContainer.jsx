@@ -27,8 +27,8 @@ class RaceEditorAPIContainer extends React.Component {
             <h1>{this.props.params.raceId}</h1>
             <RaceEditor race={this.props.race}
                 jwt = {this.props.jwt}
-                saveRace={this.props.saveRace}
-                createRace={this.props.createRace}
+                updateRace={this.props.updateRace}
+                addRace={this.props.addRace}
                 changeRaceParameter={this.props.changeRaceParameter} />
 
         </div>
@@ -50,8 +50,8 @@ const RaceEditorUseParams = (props) => {
 }
 
 const RaceEditorContainer = connect(mapStateToProps, {
-    saveRace: updateRace,
-    createRace: addRace,
+    updateRace,
+    addRace,
     changeRaceParameter: onChangeNewRace,
     setRaceEdited,
     getRaceToEditTC

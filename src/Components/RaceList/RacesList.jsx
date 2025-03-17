@@ -15,6 +15,10 @@ class RacesList extends React.Component {
         this.loadRaces()
     }
 
+    componentDidUpdate() {
+        this.loadRaces()
+    }
+
     render () {
         const racesLinksElements = this.props.races?.map(race => (<RaceLink key={race.id} race={race} />));
         const addNewRace = () => this.props.addNewRace()

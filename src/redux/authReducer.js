@@ -36,7 +36,6 @@ export const setUserData = (userData, isAuth) => ({ type: SET_USER_DATA, userDat
 
 export const loginTC = (creditionals, onFinishFailed) => {
     return (dispatch) => {
-        debugger
         APIAuth.login(creditionals)
             .then((data) => {
                 dispatch(setUserData({
@@ -53,7 +52,6 @@ export const loginTC = (creditionals, onFinishFailed) => {
 
 export const authTC = (token) => {
     return (dispatch) => {
-        debugger
         APIAuth.auth(token).then((data) => {
             dispatch(setUserData({ login: data.user.username, userId: data.user.userId }, true))
         }).catch((error) => {

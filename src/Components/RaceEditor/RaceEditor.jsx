@@ -4,9 +4,9 @@ import css from './RaceEditor.module.css';
 
 
 const RaceEditor = (props) => {
-
-    const saveRace = () => props.saveRace()
-    const createRace = () => props.createRace(props.jwt)
+    debugger
+    const updateRace = () => props.updateRace()
+    const addRace = () => props.addRace(props.jwt)
     const changeRaceParameter = (parameter, value) => props.changeRaceParameter(parameter, value)
 
     return (
@@ -19,8 +19,8 @@ const RaceEditor = (props) => {
                 <TextAreaEditor title='Описание' parameter='description' setValue={changeRaceParameter} value={props.race?.description} />
             </div>
             <div className={css.buttonContainer}>
-                <button onClick={createRace}>Create</button>
-                <button onClick={saveRace}>Save</button>
+                <button onClick={addRace}>Create</button>
+                <button onClick={updateRace}>Save</button>
                 <button>Cancle</button>
             </div>
         </div>

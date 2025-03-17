@@ -18,10 +18,9 @@ class RacesPage extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div>
-                <button onClick={this.toggleEditMode} >{this.state.editMode ? 'Edit' : 'Info'}</button>
+                <button onClick={this.toggleEditMode} >{this.state.editMode ? 'Info' : 'Edit'}</button>
                 <div className={css.racesPage}>
                     <RacesListContainer />
                     {this.state.editMode ? <RaceEditorContainer /> : <RaceInfoContainer />}
