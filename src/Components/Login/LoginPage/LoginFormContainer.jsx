@@ -1,10 +1,21 @@
 import { loginTC, setUserData } from "../../../redux/authReducer";
 import { connect } from "react-redux";
-import { LoginForm } from "./LoginForm";
-import { LoginFormUgly } from "./LoginFormUgly";
+import { LoginUgly } from "./LoginUgly";
+
+const onSubmit = (values) => {
+    alert(values)
+    console.log(values)
+    debugger
+    loginTC(values, onFinishFailed)
+}
+
+const onFinishFailed = (errorInfo) => {
+    alert('Autorization failed', JSON.stringify(errorInfo))
+  };
+
 
 const mapStateToProps = (state) => {
-    let newState = {...state.authState}
+    let newState = {...state.authState, onSubmit}
     return newState
 }
 
@@ -13,6 +24,6 @@ const LoginFormContainer = connect(mapStateToProps,
         setUserData,
         loginTC
     }
-)(LoginFormUgly)
+)(LoginUgly)
 
 export default LoginFormContainer

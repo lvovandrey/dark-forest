@@ -4,7 +4,6 @@ import css from './RaceEditor.module.css';
 
 
 const RaceEditor = (props) => {
-    debugger
     const updateRace = () => props.updateRace()
     const addRace = () => props.addRace(props.jwt)
     const changeRaceParameter = (parameter, value) => props.changeRaceParameter(parameter, value)
