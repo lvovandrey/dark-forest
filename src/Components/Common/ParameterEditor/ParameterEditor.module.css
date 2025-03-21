@@ -7,3 +7,13 @@
 input {
     min-width: 200pt;
 }
+
+.error input {
+    border: solid red 2px;
+    background-color: pink;
+}
+
+.errorLabel {
+    font-size: 10pt;
+    color:red;
+}

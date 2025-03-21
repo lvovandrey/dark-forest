@@ -1,14 +1,16 @@
 import { Field, reduxForm } from "redux-form"
+import { maxLengthCreator, required } from "../../Utils/Validators/validators";
+import ParameterEditor from "../../Common/ParameterEditor/ParameterEditor";
 
 
 export const LoginFormUgly = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field placeholder={"login"} name={"username"}  component={"input"} />
+                <Field title='Логин' name={"username"}   component={ParameterEditor} validate={[required, maxLengthCreator(15)]} />
             </div>
             <div>
-                <Field placeholder={"password"} name={"password"} component={"input"} />
+                <Field title='Пароль' name={"password"}  component={ParameterEditor} validate={[required, maxLengthCreator(15)]} />
             </div>
             <div>
                 <label>
