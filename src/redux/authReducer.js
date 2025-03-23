@@ -50,6 +50,19 @@ export const loginTC = (creditionals, onFinishFailed) => {
     }
 }
 
+export const logoutTC = () => {
+    return (dispatch) => {
+
+             dispatch(setUserData({
+                userId: null,
+                login: null,
+                token: null,
+                isAuth: false,
+                isFetching: false
+                }, false))
+    }
+}
+
 export const authTC = (token) => {
     return (dispatch) => {
         APIAuth.auth(token).then((data) => {

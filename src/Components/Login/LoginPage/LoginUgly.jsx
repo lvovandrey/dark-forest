@@ -1,6 +1,7 @@
 import { Field, reduxForm } from "redux-form"
 import { maxLengthCreator, required } from "../../Utils/Validators/validators";
 import ParameterEditor from "../../Common/ParameterEditor/ParameterEditor";
+import { Navigate } from "react-router";
 
 
 export const LoginFormUgly = (props) => {
@@ -37,7 +38,10 @@ export const LoginUgly = (props) => {
         alert("Login Error ", JSON.stringify(errorInfo))
       };
 
-    return (
+      if (props.isAuth === true)
+        return <Navigate to='/race' />
+
+      return (
         <div>
             <h1>Login</h1>
             <LoginReduxFormUgly {...props} onSubmit={onSubmit} />

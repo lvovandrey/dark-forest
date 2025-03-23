@@ -1,6 +1,6 @@
 import React from "react";
 import LoginButton from "./LoginButton";
-import { authTC, setUserData } from "../../../redux/authReducer";
+import { authTC, logoutTC, setUserData } from "../../../redux/authReducer";
 import { connect } from "react-redux";
 
 
@@ -27,7 +27,8 @@ const mapStateToProps = (state) => {
 const LoginButtonContainer = connect(mapStateToProps,
     {
         setUserData,
-        authTC
+        authTC,
+        logoutTC
     }
 )(LoginButtonAPIContainer)
 
