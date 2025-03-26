@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form"
 import { APIAuth } from "../Api/apiAuth"
 
 const SET_USER_DATA = 'SET_USER_DATA'
@@ -44,8 +45,15 @@ export const loginTC = (creditionals, onFinishFailed) => {
                     token: data.token
                 }, true))
             }).catch((error) => {
-                dispatch(setUserData({ login: null, userId: null, token: null }, false))
-                onFinishFailed()
+
+                let stopSubmitAction = stopSubmit('login', 
+                    { 
+                        _error: error.response.data.message
+                    })
+
+                dispatch(stopSubmitAction)
+                //dispatch(setUserData({ login: null, userId: null, token: null }, false))
+                onFinishFailed(error.response.data.message)
             });
     }
 }

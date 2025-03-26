@@ -5,3 +5,7 @@
 .label_text {
     color: white
 }
+
+.errorLabel {
+  color: red;
+}
