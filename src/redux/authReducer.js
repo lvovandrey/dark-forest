@@ -14,6 +14,9 @@ let initialState = {
 const authReducer = (state = initialState, action) => {
 
     const setUserData = (userData, isAuth) => {
+        if(userData?.token != undefined)
+            localStorage.setItem("darkForestJWT", userData?.token);
+        
         return {
             ...state,
             ...userData,
@@ -71,9 +74,11 @@ export const logoutTC = () => {
     }
 }
 
-export const authTC = (token) => {
+export const authTC = () => {
     return (dispatch) => {
-        APIAuth.auth(token).then((data) => {
+        let token = localStorage.getItem('darkForestJWT')
+        
+        return APIAuth.auth(token).then((data) => {
             dispatch(setUserData({ login: data.user.username, userId: data.user.userId }, true))
         }).catch((error) => {
             dispatch(setUserData({ login: null, userId: null }, false))

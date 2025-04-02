@@ -5,6 +5,7 @@ import playersReducer from "./playersReducer";
 import authReducer from "./authReducer";
 import { thunk as thunkMiddleware } from "redux-thunk";
 import { reducer as formReducer } from 'redux-form'
+import appReducer from "./appReducer";
 
 const reducersBatch = combineReducers(
     {
@@ -12,7 +13,8 @@ const reducersBatch = combineReducers(
         raceState: racesReducer,
         playersState: playersReducer,
         authState: authReducer,
-        form: formReducer
+        form: formReducer,
+        appState: appReducer
     }
 )
 

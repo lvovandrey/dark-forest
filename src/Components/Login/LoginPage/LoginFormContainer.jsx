@@ -5,7 +5,6 @@ import { LoginUgly } from "./LoginUgly";
 const onSubmit = (values) => {
     alert(values)
     console.log(values)
-    debugger
     loginTC(values, onFinishFailed)
 }
 
