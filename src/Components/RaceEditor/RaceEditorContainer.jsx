@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import React from "react";
 import { useParams } from "react-router";
 import { addRace, getRaceToEditTC, onChangeNewRace, setRaceEdited, updateRace } from "../../redux/racesReducer";
+import { getEditedRaceSL } from "../../redux/selectors/racesSelectors";
 
 class RaceEditorAPIContainer extends React.Component {
 
@@ -38,7 +39,7 @@ class RaceEditorAPIContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        race: state.raceState.newRace,
+        race: getEditedRaceSL(state),
         jwt: state.authState.token
     }
 }

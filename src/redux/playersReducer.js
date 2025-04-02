@@ -3,7 +3,7 @@ import { actionNames } from "./actionNameConstants";
 import { races } from "./state";
 
 let initialState = {
-    races: [...races, races[0]],
+    races: [...races, races[0]], //TODO: убрать вообще state обычный и тут тоже почистить
     players: [races[0], races[1]],
     pageSize: 3,
     totalRacesCount: 25,

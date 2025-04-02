@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import RacesPage from './RacesPage';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import { getRacesStateSL } from '../../redux/selectors/racesSelectors';
 
 const mapStateToProps = (state) => {
     return {
-        racesState: state.raceState,
+        racesState: getRacesStateSL(state),
     }
 }
 
