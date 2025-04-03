@@ -1,33 +1,25 @@
-import { Button } from 'antd';
 import RaceEditorContainer from '../RaceEditor/RaceEditorContainer';
 import RaceInfoContainer from '../RaceInfo/RaceInfoContainer';
 import RacesListContainer from '../RaceList/RaceListContainer';
 import css from './RacesPage.module.css'
-import React from 'react';
+import React, { useState } from 'react';
 
-class RacesPage extends React.Component {
+const RacesPage = (props) => {
+    let [editMode, setEditMode] = useState(false);
 
-    state = {
-        editMode: false
+    let toggleEditMode = () => {
+        setEditMode(!editMode);
     }
 
-    toggleEditMode = () => {
-        this.setState({
-            editMode: !this.state.editMode
-        })
-    }
-
-    render() {
         return (
             <div>
-                <button onClick={this.toggleEditMode} >{this.state.editMode ? 'Info' : 'Edit'}</button>
+                <button onClick={toggleEditMode} >{editMode ? 'Info' : 'Edit'}</button> 
                 <div className={css.racesPage}>
                     <RacesListContainer />
-                    {this.state.editMode ? <RaceEditorContainer /> : <RaceInfoContainer />}
+                    {editMode ? <RaceEditorContainer /> : <RaceInfoContainer />}
                 </div>
             </div>
         )
-    }
 }
 
 export default RacesPage;
