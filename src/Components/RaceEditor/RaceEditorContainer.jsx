@@ -4,6 +4,7 @@ import React from "react";
 import { useParams } from "react-router";
 import { addRace, getRaceToEditTC, onChangeNewRace, setRaceEdited, updateRace } from "../../redux/racesReducer";
 import { getEditedRaceSL } from "../../redux/selectors/racesSelectors";
+import { getTokenSL } from "../../redux/selectors/authSelectors";
 
 class RaceEditorAPIContainer extends React.Component {
 
@@ -40,7 +41,7 @@ class RaceEditorAPIContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         race: getEditedRaceSL(state),
-        jwt: state.authState.token
+        jwt: getTokenSL(state)
     }
 }
 

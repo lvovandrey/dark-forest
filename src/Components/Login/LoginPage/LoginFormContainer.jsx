@@ -1,6 +1,7 @@
 import { loginTC, setUserData } from "../../../redux/authReducer";
 import { connect } from "react-redux";
 import { LoginUgly } from "./LoginUgly";
+import { getAuthStateSL } from "../../../redux/selectors/authSelectors";
 
 const onSubmit = (values) => {
     alert(values)
@@ -14,7 +15,7 @@ const onFinishFailed = (errorInfo) => {
 
 
 const mapStateToProps = (state) => {
-    let newState = {...state.authState, onSubmit}
+    let newState = {...getAuthStateSL(state), onSubmit}
     return newState
 }
 

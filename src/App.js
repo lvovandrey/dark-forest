@@ -10,6 +10,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { initializeAppTC } from './redux/appReducer';
 import { Preloader } from './Components/Common/Preloader/Preloader';
+import { getIsInitializedSL } from './redux/selectors/appSelectors';
 
 class AppComponent extends Component {
 
@@ -48,7 +49,7 @@ class AppComponent extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isInitialized: state.appState.isInitialized
+  isInitialized: getIsInitializedSL(state)
 })
 
 const App = connect(mapStateToProps, { initializeAppTC })(AppComponent)

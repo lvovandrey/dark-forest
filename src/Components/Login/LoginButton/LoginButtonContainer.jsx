@@ -2,6 +2,7 @@ import React from "react";
 import LoginButton from "./LoginButton";
 import { logoutTC, setUserData } from "../../../redux/authReducer";
 import { connect } from "react-redux";
+import { getAuthStateSL } from "../../../redux/selectors/authSelectors";
 
 
 export class LoginButtonAPIContainer extends React.Component {
@@ -15,10 +16,7 @@ export class LoginButtonAPIContainer extends React.Component {
 }
 
 
-const mapStateToProps = (state) => {
-    let newState = {...state.authState}
-    return newState
-}
+const mapStateToProps = (state) => getAuthStateSL(state)
 
 const LoginButtonContainer = connect(mapStateToProps,
     {

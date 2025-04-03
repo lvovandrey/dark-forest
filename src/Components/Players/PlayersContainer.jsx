@@ -5,6 +5,7 @@ import { Preloader } from '../Common/Preloader/Preloader';
 import { addPlayer, getRacesTC, loadRaces, removePlayer, setCurrentPage, setTotalRacesCount, toggleIsRacesFetching } from '../../redux/playersReducer';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import { getCurrentPageSL, getIsRacesFetchingSL, getPageSizeSL, getPlayersStateSL, getTotalRacesCountSL } from '../../redux/selectors/playersSelectors';
 
 class PlayersAPIContainer extends React.Component {
 
@@ -34,11 +35,11 @@ class PlayersAPIContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    let newState = state.playersState;
-    newState.pageSize = state.playersState.pageSize
-    newState.totalRacesCount = state.playersState.totalRacesCount
-    newState.currentPage = state.playersState.currentPage
-    newState.isRacesFetching = state.playersState.isRacesFetching
+    let newState = getPlayersStateSL(state) //TODO: не понимаю прикол - зачем запрашивать весь объект, а потом его же заново собирать по одному свойству? 
+    newState.pageSize = getPageSizeSL(state)
+    newState.totalRacesCount = getTotalRacesCountSL(state)
+    newState.currentPage = getCurrentPageSL(state)
+    newState.isRacesFetching = getIsRacesFetchingSL(state)
     return newState
 }
 
